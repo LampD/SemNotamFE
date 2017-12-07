@@ -1,0 +1,11 @@
+<div class="container center c-login-margin-top" *ngIf="!isLoading">
+    <div class="form-signin">
+        <h2 class="form-signin-heading">Anmeldung</h2>
+        <label class="sr-only">Email address</label>
+        <input [(ngModel)]="email" type="email" class="form-control">
+        <label  class="sr-only">Password</label>
+        <input [(ngModel)]="password" type="password" class="form-control margin-top-8">
+
+        <button class="btn btn-lg btn-primary btn-block margin-top-8" type="submit" (click)="login()">Anmelden</button>
+    </div>
+</div>
