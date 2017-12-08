@@ -3,9 +3,9 @@
         <h1 class="text-center">SEMNOTAM</h1>
     </div>
 
-    <a routerLink="/messages">Message Inbox</a>
-    <a routerLink="/contexts">Context Hierarchy</a>
-    <a routerLink="/parameters">Parameters</a>
-    <a routerLink="/notams">Query Notams</a>
-    <a routerLink="/transaction">Transaction</a>
-  </div>
+    <a routerLink="/messages" [style.color]="colorMessage">Message Inbox</a>
+    <a routerLink="/contexts" [style.color]="colorContext">Context Hierarchy</a>
+    <a routerLink="/parameters" [style.color]="colorParameter">Parameters</a>
+    <a routerLink="/notams" [style.color]="colorNotam">Query Notams</a>
+    <a routerLink="/transaction" [style.color]="colorTransaction">Transaction</a>
+</div>
