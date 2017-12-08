@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule, Http } from '@angular/http';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,7 +22,15 @@ import { ContextComponent } from './context';
 import { ParameterComponent } from './parameter';
 import { NotamComponent } from './notam';
 import { TransactionComponent } from './transaction';
-
+import { 
+    HttpService,
+    SettingsService
+} from './common';
+import { 
+    AuthManager,
+    AuthService
+} from './auth';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
     declarations: [
@@ -42,9 +52,17 @@ import { TransactionComponent } from './transaction';
         AppRoutingModule,
         NgbModule.forRoot(),
         AngularFontAwesomeModule,
-        ToastrModule
+        ToastrModule,
+        HttpModule,
+        HttpClientModule,
     ],
-    providers: [],
+    providers: [
+        SettingsService,
+        HttpService,
+        AuthManager,
+        AuthService,
+        AuthGuard
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

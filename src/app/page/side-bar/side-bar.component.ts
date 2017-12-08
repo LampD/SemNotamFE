@@ -38,11 +38,22 @@ export class SideBarComponent implements OnInit, OnDestroy {
         }
     }
 
+    public get isUserLoggedIn(): boolean {
+        return sessionStorage.getItem('UserId') != null ? true : false;
+    }
+
     public updateColor(): void {
         this.colorMessage = this.location.path().includes('messages') ? 'red' : 'white';
         this.colorContext = this.location.path().includes('contexts') ? 'red' : 'white';
         this.colorParameter = this.location.path().includes('parameters') ? 'red' : 'white';
         this.colorNotam = this.location.path().includes('notams') ? 'red' : 'white';
         this.colorTransaction = this.location.path().includes('transaction') ? 'red' : 'white';
+    }
+
+    public logout(): void {
+        sessionStorage.removeItem('UserId');
+        sessionStorage.removeItem('Role');
+
+        this.router.navigate(['login']);
     }
 }

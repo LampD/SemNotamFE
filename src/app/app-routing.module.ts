@@ -7,11 +7,12 @@ import { ContextComponent } from './context/index';
 import { ParameterComponent } from './parameter/index';
 import { NotamComponent } from './notam/index';
 import { TransactionComponent } from './transaction/index';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
     { 
         path: '', 
-        redirectTo: '/login', 
+        redirectTo: 'login', 
         pathMatch: 'full' 
     },
     {
@@ -20,23 +21,28 @@ const routes: Routes = [
     },
     {
         path: 'messages',
-        component: MessageInboxComponent
+        component: MessageInboxComponent,
+        canActivate: [ AuthGuard ]
     },
     {
         path: 'contexts',
-        component: ContextComponent
+        component: ContextComponent,
+        canActivate: [ AuthGuard ]
     },
     {
         path: 'parameters',
-        component: ParameterComponent
+        component: ParameterComponent,
+        canActivate: [ AuthGuard ]
     },
     {
         path: 'notams',
-        component: NotamComponent
+        component: NotamComponent,
+        canActivate: [ AuthGuard ]
     },
     {
         path: 'transaction',
-        component: TransactionComponent
+        component: TransactionComponent,
+        canActivate: [ AuthGuard ]
     }
 ];
 
