@@ -9,16 +9,9 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 export class AppComponent implements OnInit{
     
     title = 'app';
-
     public width: number;
-    
-    constructor() {
-        
-    }
 
     ngOnInit(): void {
         this.width = window.innerWidth - 250;
-
-        console.log(this.width);
     }
 }
