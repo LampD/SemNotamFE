@@ -1,3 +1,8 @@
 <side-bar></side-bar>
-<router-outlet></router-outlet>
+<div class="position" [style.width.px]="width">
+    <app-header></app-header>
+    <div class="router-outlet">
+        <router-outlet></router-outlet>
+    </div>
+</div>
 

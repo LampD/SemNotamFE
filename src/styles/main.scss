@@ -1,8 +1,14 @@
+@import '~styles/variables';
+
 body {
     color: $color-secondary;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.blue-background {
+    background-color: $color-primary;
 }
 
 .margin-top-8 {

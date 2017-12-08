@@ -10,7 +10,13 @@
     background-color: $color-primary;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+}
+
+.product-name {
+    height: 60px;
+    font-size: 25px;
+    color: white;
+    margin-top: 4px;
 }
 
 .sidenav a {

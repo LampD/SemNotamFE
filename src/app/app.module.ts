@@ -11,14 +11,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login';
-import { SideBarComponent } from './page/side-bar/side-bar.component';
+import { 
+    SideBarComponent,
+    HeaderComponent 
+} from './page';
+import { MessageInboxComponent } from './message-inbox';
+import { ContextComponent } from './context';
+import { ParameterComponent } from './parameter';
+import { NotamComponent } from './notam';
+import { TransactionComponent } from './transaction';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        SideBarComponent
+        SideBarComponent,
+        HeaderComponent,
+        MessageInboxComponent,
+        ContextComponent,
+        ParameterComponent,
+        NotamComponent,
+        TransactionComponent
     ],
     imports: [
         BrowserModule,
