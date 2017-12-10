@@ -2,7 +2,10 @@
 <div class="position" [style.width.px]="width">
     <app-header></app-header>
     <div class="router-outlet" [style.width.px]="width">
-        <router-outlet></router-outlet>
+        <div class="center-loader" *ngIf="isLoading">
+            <loading-indicator [isLoading]="isLoading"></loading-indicator>
+        </div>
+        <router-outlet *ngIf="!isLoading"></router-outlet>
     </div>
 </div>
 

@@ -24,7 +24,9 @@ import { NotamComponent } from './notam';
 import { TransactionComponent } from './transaction';
 import { 
     HttpService,
-    SettingsService
+    SettingsService,
+    LoadingIndicatorComponent,
+    LoadingIndicatorService
 } from './common';
 import { 
     AuthManager,
@@ -42,7 +44,8 @@ import { AuthGuard } from './auth/auth.guard';
         ContextComponent,
         ParameterComponent,
         NotamComponent,
-        TransactionComponent
+        TransactionComponent,
+        LoadingIndicatorComponent
     ],
     imports: [
         BrowserModule,
@@ -61,7 +64,8 @@ import { AuthGuard } from './auth/auth.guard';
         HttpService,
         AuthManager,
         AuthService,
-        AuthGuard
+        AuthGuard,
+        LoadingIndicatorService
     ],
     bootstrap: [AppComponent]
 })
