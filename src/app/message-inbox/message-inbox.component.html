@@ -1,7 +1,10 @@
-<div class="container-fluid">
-    <div class="row red-background">
-        <div class="col-md-12">
-            <p class="float-right">test</p>
-        </div>
-    </div>
+<div class="container-fluid content-container">
+    <p-dataTable [value]="messages">
+        <p-column field="status" header="Status"></p-column>
+        <p-column field="time" header="Time"></p-column>
+        <p-column field="sender" header="Sender"></p-column>
+        <p-column field="title" header="Title"></p-column>
+        <p-column field="element" header="Element"></p-column>
+        <p-column header="Operations"></p-column>
+    </p-dataTable>
 </div>

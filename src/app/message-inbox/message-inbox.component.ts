@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from './message';
+import { LoadingIndicatorService } from '../common/index';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-message-inbox',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageInboxComponent implements OnInit {
 
-  constructor() { }
+    public messages: Array<Message> = [];
 
-  ngOnInit() {
-  }
+    constructor(
+        private loadingIndicatorService: LoadingIndicatorService,
+        private messageService: MessageService
+    ) { }
 
+    public async ngOnInit() {
+        this.loadingIndicatorService.displayLoader(true);
+
+        //this.messages = await this.messageService.loadMessages();
+
+        this.loadingIndicatorService.displayLoader(false);
+    }
 }

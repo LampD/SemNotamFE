@@ -1,0 +1,38 @@
+{
+  "user": [
+  {
+	"id": 1,
+    "name": "dominik",
+    "role": "RuleDeveloper",
+    "email": "dominik.lamprecht@icloud.com"
+  },
+    {
+	"id": 2,
+    "name": "dominik2",
+    "role": "RepositoryAdministrator",
+    "email": "dominik.lamprecht2@icloud.com"
+  },
+    {
+	"id": 3,
+    "name": "dominik3",
+    "role": "DomainExpert",
+    "email": "dominik.lamprecht3@icloud.com"
+  },
+    {
+	"id": 4,
+    "name": "dominik4",
+    "role": "User",
+    "email": "dominik.lamprecht4@icloud.com"
+  }
+  ],
+  "message": [
+  {
+	"id": 1,
+	"time": "2015-10-1 3:00 PM GMT+1:00",
+	"sender": "Max Mustermann",
+	"title": "wichtige Nachricht",
+	"element": "irgendein text der bestätigt werden will",
+	"status": "unread"
+  }
+  ]
+}

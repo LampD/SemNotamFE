@@ -9,6 +9,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
+import {
+    DataTableModule,
+    SharedModule
+} from 'primeng/primeng';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -17,7 +22,10 @@ import {
     SideBarComponent,
     HeaderComponent 
 } from './page';
-import { MessageInboxComponent } from './message-inbox';
+import { 
+    MessageInboxComponent,
+    MessageService
+} from './message-inbox';
 import { ContextComponent } from './context';
 import { ParameterComponent } from './parameter';
 import { NotamComponent } from './notam';
@@ -58,6 +66,8 @@ import { AuthGuard } from './auth/auth.guard';
         ToastrModule,
         HttpModule,
         HttpClientModule,
+        DataTableModule,
+        SharedModule
     ],
     providers: [
         SettingsService,
@@ -65,7 +75,8 @@ import { AuthGuard } from './auth/auth.guard';
         AuthManager,
         AuthService,
         AuthGuard,
-        LoadingIndicatorService
+        LoadingIndicatorService,
+        MessageService
     ],
     bootstrap: [AppComponent]
 })
