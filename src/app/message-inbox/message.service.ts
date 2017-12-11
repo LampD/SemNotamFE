@@ -13,4 +13,8 @@ export class MessageService {
     public loadMessages(): Promise<Array<Message>> {
         return this.http.get<Array<Message>>(this.settingsService.serverPath + 'message');
     }
+
+    public loadMessage(id: number): Promise<Message> {
+        return this.http.get<Message>(this.settingsService.serverPath + 'message/' + id);
+    }
 }

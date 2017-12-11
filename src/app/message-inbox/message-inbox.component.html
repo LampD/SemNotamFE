@@ -1,10 +1,13 @@
 <div class="container-fluid content-container">
-    <p-dataTable [value]="messages">
-        <p-column field="status" header="Status"></p-column>
-        <p-column field="time" header="Time"></p-column>
-        <p-column field="sender" header="Sender"></p-column>
-        <p-column field="title" header="Title"></p-column>
+    <p-dataTable [value]="messages" selectionMode="single" (onRowClick)="navigateToDetail($event)">
+        <p-column field="status" header="Status" [style]="{'width':'5%'}"></p-column>
+        <p-column field="time" header="Time" [style]="{'width':'10%'}">
+            <ng-template let-col let-message="rowData" let-ri="rowIndex" pTemplate="body">
+                <span>{{message[col.field] | date: 'dd.MM.yyyy, h:mm' }}</span>
+            </ng-template>
+        </p-column>
+        <p-column field="sender" header="Sender" [style]="{'width':'20%'}"></p-column>
+        <p-column field="title" header="Title" [style]="{'width':'25%'}"></p-column>
         <p-column field="element" header="Element"></p-column>
-        <p-column header="Operations"></p-column>
     </p-dataTable>
 </div>

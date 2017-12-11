@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Message } from './message';
 import { LoadingIndicatorService } from '../common/index';
 import { MessageService } from './message.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-message-inbox',
+  selector: 'message-inbox',
   templateUrl: './message-inbox.component.html',
   styleUrls: ['./message-inbox.component.scss']
 })
@@ -14,14 +15,15 @@ export class MessageInboxComponent implements OnInit {
 
     constructor(
         private loadingIndicatorService: LoadingIndicatorService,
-        private messageService: MessageService
+        private messageService: MessageService,
+        private router: Router
     ) { }
 
     public async ngOnInit() {
-        this.loadingIndicatorService.displayLoader(true);
+        this.messages = await this.messageService.loadMessages();
+    }
 
-        //this.messages = await this.messageService.loadMessages();
-
-        this.loadingIndicatorService.displayLoader(false);
+    public navigateToDetail(event): void {
+        this.router.navigate(['message'], { queryParams: { id: event.data.id } });
     }
 }

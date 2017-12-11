@@ -5,4 +5,6 @@ export interface Message {
     title: string;
     element: string;
     status: string;
+    type: string;
+    text: string;
 }

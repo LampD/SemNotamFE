@@ -24,7 +24,8 @@ import {
 } from './page';
 import { 
     MessageInboxComponent,
-    MessageService
+    MessageService,
+    MessageDetailComponent
 } from './message-inbox';
 import { ContextComponent } from './context';
 import { ParameterComponent } from './parameter';
@@ -53,7 +54,8 @@ import { AuthGuard } from './auth/auth.guard';
         ParameterComponent,
         NotamComponent,
         TransactionComponent,
-        LoadingIndicatorComponent
+        LoadingIndicatorComponent,
+        MessageDetailComponent
     ],
     imports: [
         BrowserModule,
