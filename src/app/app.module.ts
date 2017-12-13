@@ -42,6 +42,7 @@ import {
     AuthService
 } from './auth';
 import { AuthGuard } from './auth/auth.guard';
+import { NewMessageComponent } from './message-inbox/new-message/new-message.component';
 
 @NgModule({
     declarations: [
@@ -55,7 +56,8 @@ import { AuthGuard } from './auth/auth.guard';
         NotamComponent,
         TransactionComponent,
         LoadingIndicatorComponent,
-        MessageDetailComponent
+        MessageDetailComponent,
+        NewMessageComponent
     ],
     imports: [
         BrowserModule,

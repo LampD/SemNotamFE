@@ -26,4 +26,8 @@ export class MessageInboxComponent implements OnInit {
     public navigateToDetail(event): void {
         this.router.navigate(['message'], { queryParams: { id: event.data.id } });
     }
+
+    public newMessage(): void {
+        this.router.navigate(['newMessage']);
+    }
 }

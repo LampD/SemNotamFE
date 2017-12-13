@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes,  } from '@angular/router';
 
 import { LoginComponent } from '../app/login';
-import { MessageInboxComponent, MessageDetailComponent } from './message-inbox/index';
+import { MessageInboxComponent, MessageDetailComponent, NewMessageComponent } from './message-inbox/index';
 import { ContextComponent } from './context/index';
 import { ParameterComponent } from './parameter/index';
 import { NotamComponent } from './notam/index';
@@ -27,6 +27,11 @@ const routes: Routes = [
     {
         path: 'message', 
         component: MessageDetailComponent, 
+        canActivate: [ AuthGuard ],
+    },
+    {
+        path: 'newMessage', 
+        component: NewMessageComponent, 
         canActivate: [ AuthGuard ],
     },
     {
