@@ -8,6 +8,7 @@ import { NotamComponent } from './notam/index';
 import { TransactionComponent } from './transaction/index';
 import { AuthGuard } from './auth/auth.guard';
 import { ContextComponent } from './context/context.component';
+import { ContextDetailComponent } from './context/context-detail/context-detail.component';
 
 const routes: Routes = [
     { 
@@ -37,6 +38,11 @@ const routes: Routes = [
     {
         path: 'contexts',
         component: ContextComponent,
+        canActivate: [ AuthGuard ]
+    },
+    {
+        path: 'contextDetail',
+        component: ContextDetailComponent,
         canActivate: [ AuthGuard ]
     },
     {

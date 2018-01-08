@@ -47,6 +47,7 @@ import { NewMessageComponent } from './message-inbox/new-message/new-message.com
 import { UserService } from './user';
 import { ContextComponent } from './context/context.component';
 import { ContextService } from './context/context.service';
+import { ContextDetailComponent } from './context/context-detail/context-detail.component';
 
 @NgModule({
     declarations: [
@@ -61,7 +62,8 @@ import { ContextService } from './context/context.service';
         TransactionComponent,
         LoadingIndicatorComponent,
         MessageDetailComponent,
-        NewMessageComponent
+        NewMessageComponent,
+        ContextDetailComponent
     ],
     imports: [
         BrowserModule,

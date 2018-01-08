@@ -199,5 +199,50 @@
             "name": "EventScenario",
             "field": "eventScenario"
         }
+    ],
+
+    "context": [
+        {
+            "id": 1,
+            "ruleDevelopers": [
+                {
+                    "id": 1,
+                    "name": "Max Mustermann"
+                },
+                {
+                    "id": 2,
+                    "name": "Susi Sorglos"
+                },
+                {
+                    "id": 3,
+                    "name": "Stefan Raab"
+                }
+
+            ], 
+            "businessrules": [
+                {
+                    "id": 1,
+                    "name": "R1",
+                    "description": "Some Description that describes the rule."
+                },
+                {
+                    "id": 2,
+                    "name": "R2",
+                    "description": "Some Description that describes the rule."
+                }
+            ],
+            "businessTerms": [
+                {
+                    "id": 1,
+                    "name": "BT1",
+                    "description": "Some Description that describes the term."
+                },
+                {
+                    "id": 2,
+                    "name": "BT2",
+                    "description": "Some Description that describes the term."
+                }
+            ]
+        }
     ]
 }

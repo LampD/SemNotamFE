@@ -26,8 +26,7 @@ export class ContextComponent implements OnInit {
     }
 
     public navigateToDetail(treeItem): void {
-        console.log(treeItem.data.id)
-        //this.router.navigate(['message'], { queryParams: { id: event.data.id } });
+        this.router.navigate(['contextDetail'], { queryParams: { id: treeItem.data.id } });
     }
 
     public newContext(): void {
