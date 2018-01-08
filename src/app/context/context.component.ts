@@ -3,6 +3,7 @@ import { MessageService } from '../message-inbox/index';
 import { Router } from '@angular/router';
 import { TreeNode } from 'primeng/components/common/treenode';
 import { ContextService } from './context.service';
+import { ParameterType } from './context';
 
 @Component({
   selector: 'app-context',
@@ -11,6 +12,7 @@ import { ContextService } from './context.service';
 })
 export class ContextComponent implements OnInit {
 
+    public columns: Array<ParameterType>;
     public contexts: Array<TreeNode>;
 
     constructor(
@@ -19,6 +21,7 @@ export class ContextComponent implements OnInit {
     ) { }
 
     public async ngOnInit() {
+        this.columns = await this.contextService.getParameterNames();
         this.contexts = await this.contextService.getContextHierachy();
     }
 

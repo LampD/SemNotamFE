@@ -184,7 +184,20 @@
                 }
             ]
         }
+    ],
+
+    "parameterType": [
+        {
+            "name": "Interest",
+            "field": "interest"
+        },
+        {
+            "name": "flightPhase",
+            "field": "flightPhase"
+        },
+        {
+            "name": "EventScenario",
+            "field": "eventScenario"
+        }
     ]
-
-
 }
