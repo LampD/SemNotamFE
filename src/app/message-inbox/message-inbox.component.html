@@ -1,6 +1,12 @@
 <div class="container-fluid content-container">
     <p-dataTable [value]="messages" selectionMode="single" (onRowClick)="navigateToDetail($event)">
-        <p-column field="status" header="Status" [style]="{'width':'5%'}"></p-column>
+        <p-column field="status" header="Status" [style]="{'width':'5%'}">
+            <ng-template let-col let-message="rowData" let-ri="rowIndex" pTemplate="body">
+                <i class="fa fa-envelope" aria-hidden="true" *ngIf="message.status === 'unread'"></i>
+                <i class="fa fa-envelope-open" aria-hidden="true" *ngIf="message.status === 'read'"></i>
+                <i class="fa fa-check" aria-hidden="true" *ngIf="message.status === 'acknoledged'"></i>
+            </ng-template>
+        </p-column>
         <p-column field="time" header="Time" [style]="{'width':'10%'}">
             <ng-template let-col let-message="rowData" let-ri="rowIndex" pTemplate="body">
                 <span>{{message[col.field] | date: 'dd.MM.yyyy, h:mm' }}</span>

@@ -44,7 +44,7 @@
 	"sender": "Max Mustermann",
 	"title": "New Context added2",
 	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
+    "status": "read",
     "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
     "type": "ContextAdded"
   },
@@ -54,7 +54,7 @@
 	"sender": "Max Mustermann",
 	"title": "New Context added3",
 	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
+    "status": "acknoledged",
     "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
     "type": "ContextAdded"
   },
