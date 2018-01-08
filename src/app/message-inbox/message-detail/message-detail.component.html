@@ -1,0 +1,27 @@
+<div class="content-container" *ngIf="message != null">
+    <div class="container-fluid">
+        <div class="row">
+            <h3>{{ message.title }}</h3>
+        </div>
+
+        <h5>Status</h5>
+        <p>{{ message.status }}</p>
+
+        <h5>Time</h5>
+        <p>{{ message.time }}</p>
+
+        <h5>Type</h5>
+        <p>{{ message.type }}</p>
+
+        <h5>Element</h5>
+        <p>{{ message.element }}</p>
+
+        <h5>Sender</h5>
+        <p>{{ message.sender }}</p>
+
+        <h5>Text</h5>
+        <p>{{ message.text }}</p>
+
+        <button type="button" class="btn btn-primary">Acknowledge</button>
+    </div>
+</div>
