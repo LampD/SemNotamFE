@@ -7,14 +7,6 @@ body {
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
-.blue-background {
-    background-color: $color-primary;
-}
-
-.red-background {
-    background-color: $color-active;
-}
-
 .content-container {
     padding: 32px 32px;
 }
@@ -29,4 +21,8 @@ body {
 
 .margin-top-16 {
     margin-top: 16px;
+}
+
+.no-padding {
+    padding: 0px;
 }

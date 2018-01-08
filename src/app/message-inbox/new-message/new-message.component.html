@@ -4,7 +4,9 @@
             <h5>Recipient</h5>
         </div>
         <div class="row">
-            <p-dropdown autoWidth="true" [options]="dropDownRecipient" [(ngModel)]="selectedRecipient"></p-dropdown>
+            <div class="col-md-12 no-padding">
+                <p-dropdown autoWidth="true" [options]="dropDownRecipient" [(ngModel)]="selectedRecipient" [style]="{ 'width':'100%'}"></p-dropdown>
+            </div>
         </div>
 
         <div class="row margin-top-16">
