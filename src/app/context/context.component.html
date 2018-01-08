@@ -1,3 +1,16 @@
-<p>
-  context works!
-</p>
+<div class="container-fluid content-container" *ngIf="contexts">
+    <p-treeTable [value]="contexts" (onRowClick)="navigateToDetail($event)">
+        <p-column field="interest" header="Interest"></p-column>
+        <p-column field="flightPhase" header="FlightPhase"></p-column>
+        <p-column field="eventScenario" header="EventScenario"></p-column>
+        <p-column field="eventScenario" header="" [style]="{'width':'5%', 'text-align':'center'}">
+            <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
+                <div class="w-100 h-100 link" (click)="navigateToDetail(entry)">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+            </ng-template>
+        </p-column>
+    </p-treeTable>
+
+    <button type="button" class="btn btn-primary margin-top-16" (click)="newContext()">Create Context</button>
+</div>

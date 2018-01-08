@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../message-inbox/index';
+import { Router } from '@angular/router';
+import { TreeNode } from 'primeng/components/common/treenode';
+import { ContextService } from './context.service';
 
 @Component({
   selector: 'app-context',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContextComponent implements OnInit {
 
-  constructor() { }
+    public contexts: Array<TreeNode>;
 
-  ngOnInit() {
-  }
+    constructor(
+        private contextService: ContextService,
+        private router: Router
+    ) { }
 
+    public async ngOnInit() {
+        this.contexts = await this.contextService.getContextHierachy();
+    }
+
+    public navigateToDetail(treeItem): void {
+        console.log(treeItem.data.id)
+        //this.router.navigate(['message'], { queryParams: { id: event.data.id } });
+    }
+
+    public newContext(): void {
+        this.router.navigate(['newMessage']);
+    }
 }

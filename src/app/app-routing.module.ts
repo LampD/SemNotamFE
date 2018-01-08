@@ -3,11 +3,11 @@ import { RouterModule, Routes,  } from '@angular/router';
 
 import { LoginComponent } from '../app/login';
 import { MessageInboxComponent, MessageDetailComponent, NewMessageComponent } from './message-inbox/index';
-import { ContextComponent } from './context/index';
 import { ParameterComponent } from './parameter/index';
 import { NotamComponent } from './notam/index';
 import { TransactionComponent } from './transaction/index';
 import { AuthGuard } from './auth/auth.guard';
+import { ContextComponent } from './context/context.component';
 
 const routes: Routes = [
     { 

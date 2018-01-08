@@ -1,113 +1,190 @@
 {
-  "user": [
-  {
-	"id": 1,
-    "name": "dominik",
-    "role": "RuleDeveloper",
-    "email": "dominik.lamprecht@icloud.com"
-  },
-    {
-	"id": 2,
-    "name": "dominik2",
-    "role": "RepositoryAdministrator",
-    "email": "dominik.lamprecht2@icloud.com"
-  },
-    {
-	"id": 3,
-    "name": "dominik3",
-    "role": "DomainExpert",
-    "email": "dominik.lamprecht3@icloud.com"
-  },
-    {
-	"id": 4,
-    "name": "dominik4",
-    "role": "User",
-    "email": "dominik.lamprecht4@icloud.com"
-  }
-  ],
+    "user": [
+        {
+            "id": 1,
+            "name": "dominik",
+            "role": "RuleDeveloper",
+            "email": "dominik.lamprecht@icloud.com"
+        },
+            {
+            "id": 2,
+            "name": "dominik2",
+            "role": "RepositoryAdministrator",
+            "email": "dominik.lamprecht2@icloud.com"
+        },
+            {
+            "id": 3,
+            "name": "dominik3",
+            "role": "DomainExpert",
+            "email": "dominik.lamprecht3@icloud.com"
+        },
+            {
+            "id": 4,
+            "name": "dominik4",
+            "role": "User",
+            "email": "dominik.lamprecht4@icloud.com"
+        }
+    ],
 
-  
-  "message": [
-  {
-	"id": 1,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  },
-  {
-	"id": 2,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added2",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "read",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  },
-  {
-	"id": 3,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added3",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "acknoledged",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  },
-  {
-	"id": 4,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added4",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  },
-  {
-	"id": 5,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added5",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  },
-  {
-	"id": 6,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added6",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  },
-  {
-	"id": 7,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added7",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  },
-  {
-	"id": 8,
-	"time": "2015-10-1 3:00 PM GMT+1:00",
-	"sender": "Max Mustermann",
-	"title": "New Context added8",
-	"element": "Context <aircraft;allFlightPhases;treeObstruction>",
-    "status": "unread",
-    "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
-    "type": "ContextAdded"
-  }
+    "message": [
+        {
+            "id": 1,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "unread",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        },
+        {
+            "id": 2,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added2",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "read",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        },
+        {
+            "id": 3,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added3",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "acknoledged",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        },
+        {
+            "id": 4,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added4",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "unread",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        },
+        {
+            "id": 5,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added5",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "unread",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        },
+        {
+            "id": 6,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added6",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "unread",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        },
+        {
+            "id": 7,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added7",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "unread",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        },
+        {
+            "id": 8,
+            "time": "2015-10-1 3:00 PM GMT+1:00",
+            "sender": "Max Mustermann",
+            "title": "New Context added8",
+            "element": "Context <aircraft;allFlightPhases;treeObstruction>",
+            "status": "unread",
+            "text": "New context <aircraft; allFlightPhases;treeObstruction> added as child of Context <aircraft;allFlightPhases,Obstruction> by RepositroyAdmn1",
+            "type": "ContextAdded"
+        }
+    ],
 
-  ]
+    "contextHierarchy": [
+        {
+            "data": {
+                "id": 1,
+                "interest": "allInterest",
+                "flightPhase": "allFlightPhases",
+                "eventScenario": "allEventScenarios"
+            },
+            "children": [
+                {
+                    "data": {
+                        "id": 2,
+                        "interest": "aircraft",
+                        "flightPhase": "allFlightPhases",
+                        "eventScenario": "obstruction"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "id": 6,
+                                "interest": "helicopter",
+                                "flightPhase": "allFlightPhases",
+                                "eventScenario": "obstruction"
+                            },
+                            "children": [
+
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "id": 3,
+                        "interest": "aircraft",
+                        "flightPhase": "onGround",
+                        "eventScenario": "closure"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "id": 7,
+                                "interest": "landplane",
+                                "flightPhase": "onGround",
+                                "eventScenario": "runwayClosure"
+                            },
+                            "children": [
+
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "data": {
+                        "id": 4,
+                        "interest": "landplane",
+                        "flightPhase": "allFlightPhases",
+                        "eventScenario": "aerodromeEquipment"
+                    },
+                    "children": [
+
+                    ]
+                },
+                {
+                    "data": {
+                        "id": 5,
+                        "interest": "aircraft",
+                        "flightPhase": "onGround",
+                        "eventScenario": "aerodromEquipment"
+                    },
+                    "children": [
+
+                    ]
+                }
+            ]
+        }
+    ]
+
+
 }

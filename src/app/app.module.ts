@@ -12,9 +12,9 @@ import { ToastrModule } from 'ngx-toastr';
 import {
     DataTableModule,
     SharedModule,
-    DropdownModule
+    DropdownModule,
+    TreeTableModule
 } from 'primeng/primeng';
-import { SelectModule } from 'angular2-select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +29,6 @@ import {
     MessageService,
     MessageDetailComponent
 } from './message-inbox';
-import { ContextComponent } from './context';
 import { ParameterComponent } from './parameter';
 import { NotamComponent } from './notam';
 import { TransactionComponent } from './transaction';
@@ -46,6 +45,8 @@ import {
 import { AuthGuard } from './auth/auth.guard';
 import { NewMessageComponent } from './message-inbox/new-message/new-message.component';
 import { UserService } from './user';
+import { ContextComponent } from './context/context.component';
+import { ContextService } from './context/context.service';
 
 @NgModule({
     declarations: [
@@ -65,7 +66,6 @@ import { UserService } from './user';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        SelectModule,
         FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,
@@ -76,7 +76,8 @@ import { UserService } from './user';
         HttpClientModule,
         DataTableModule,
         SharedModule,
-        DropdownModule
+        DropdownModule,
+        TreeTableModule
     ],
     providers: [
         SettingsService,
@@ -86,7 +87,8 @@ import { UserService } from './user';
         AuthGuard,
         LoadingIndicatorService,
         MessageService,
-        UserService
+        UserService,
+        ContextService
     ],
     bootstrap: [AppComponent]
 })

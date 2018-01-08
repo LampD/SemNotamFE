@@ -26,3 +26,9 @@ body {
 .no-padding {
     padding: 0px;
 }
+
+.link {
+    &:hover {
+        cursor: pointer;
+    }
+}
