@@ -13,18 +13,19 @@ import {
     DataTableModule,
     SharedModule,
     DropdownModule,
-    TreeTableModule
+    TreeTableModule,
+    TreeNode
 } from 'primeng/primeng';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login';
-import { 
+import {
     SideBarComponent,
-    HeaderComponent 
+    HeaderComponent
 } from './page';
-import { 
+import {
     MessageInboxComponent,
     MessageService,
     MessageDetailComponent
@@ -32,23 +33,26 @@ import {
 import { ParameterComponent } from './parameter';
 import { NotamComponent } from './notam';
 import { TransactionComponent } from './transaction';
-import { 
+import {
     HttpService,
     SettingsService,
     LoadingIndicatorComponent,
     LoadingIndicatorService
 } from './common';
-import { 
+import {
     AuthManager,
     AuthService
 } from './auth';
 import { AuthGuard } from './auth/auth.guard';
 import { NewMessageComponent } from './message-inbox/new-message/new-message.component';
 import { UserService } from './user';
+import {ParameterService} from './parameter/parameter.service';
+import { ParameterDetailComponent } from './parameter/parameter-detail/parameter-detail.component';
 import { ContextComponent } from './context/context.component';
 import { ContextService } from './context/context.service';
 import { ContextDetailComponent } from './context/context-detail/context-detail.component';
 import { AddUpdateContextDialogComponent } from './context/add-update-context-dialog/add-update-context-dialog.component';
+
 
 @NgModule({
     declarations: [
@@ -64,8 +68,13 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         LoadingIndicatorComponent,
         MessageDetailComponent,
         NewMessageComponent,
+<<<<<<< HEAD
         ContextDetailComponent,
         AddUpdateContextDialogComponent
+=======
+        ParameterDetailComponent,
+        ContextDetailComponent
+>>>>>>> 04e3a53311ddc7a84fc0ce01ab0c39df73bef2fa
     ],
     imports: [
         BrowserModule,
@@ -91,6 +100,8 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         AuthGuard,
         LoadingIndicatorService,
         MessageService,
+        ParameterService,
+        UserService,
         UserService,
         ContextService
     ],
