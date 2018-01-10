@@ -48,6 +48,7 @@ import { UserService } from './user';
 import { ContextComponent } from './context/context.component';
 import { ContextService } from './context/context.service';
 import { ContextDetailComponent } from './context/context-detail/context-detail.component';
+import { AddUpdateContextDialogComponent } from './context/add-update-context-dialog/add-update-context-dialog.component';
 
 @NgModule({
     declarations: [
@@ -63,7 +64,8 @@ import { ContextDetailComponent } from './context/context-detail/context-detail.
         LoadingIndicatorComponent,
         MessageDetailComponent,
         NewMessageComponent,
-        ContextDetailComponent
+        ContextDetailComponent,
+        AddUpdateContextDialogComponent
     ],
     imports: [
         BrowserModule,
