@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Parameter} from './parameter';
+import {Router} from '@angular/router';
+import {LoadingIndicatorService} from '../common';
+import {ParameterService} from './parameter.service';
 
 @Component({
   selector: 'app-parameter',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParameterComponent implements OnInit {
 
-  constructor() { }
+  public parameters: Array<Parameter> = [];
 
-  ngOnInit() {
+  constructor(
+    private loadingIndicatorService: LoadingIndicatorService,
+    private parameterService: ParameterService,
+    private router: Router
+  ) { }
+
+  public async ngOnInit() {
+      this.parameters = await this.parameterService.getParameter();
   }
 
 }
