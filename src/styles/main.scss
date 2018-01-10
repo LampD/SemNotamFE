@@ -15,6 +15,10 @@ body {
     padding: 0px 0px;
 }
 
+.no-margin {
+    margin: 0px 0px;
+}
+
 .margin-top-8 {
     margin-top: 8px;
 }
@@ -27,9 +31,7 @@ body {
     margin-top: 32px;
 }
 
-.no-padding {
-    padding: 0px;
-}
+
 
 .link {
     &:hover {

@@ -1,3 +1,17 @@
-<p>
-  add-update-context-dialog works!
-</p>
+<p-dialog [(visible)]="display" [closable]="false" [width]="400">
+    <p-header>
+        {{ contextId == null ? "Create new Context" : "Update Context"}}
+    </p-header>
+    
+    <div *ngFor="let parameter of parameterTypeValues">
+        <div class="form-group no-margin margin-top-16">
+            <label>{{ parameter.name }}</label>
+        </div>
+        <p-dropdown [options]="parameter.values" [(ngModel)]="selectedCity" optionLabel="value" [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
+    </div>
+
+    <p-footer>
+        <button type="button" class="btn btn-sm btn-danger" (click)="cancel()">Cancel</button>
+        <button type="button" class="btn btn-sm btn-success" (click)="save()">Save</button>
+    </p-footer>
+</p-dialog>

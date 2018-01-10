@@ -14,7 +14,8 @@ import {
     SharedModule,
     DropdownModule,
     TreeTableModule,
-    TreeNode
+    TreeNode,
+    DialogModule
 } from 'primeng/primeng';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -86,7 +87,8 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         DataTableModule,
         SharedModule,
         DropdownModule,
-        TreeTableModule
+        TreeTableModule,
+        DialogModule
     ],
     providers: [
         SettingsService,

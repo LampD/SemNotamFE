@@ -11,6 +11,7 @@ import { ContextService } from '../context.service';
 export class ContextDetailComponent implements OnInit {
 
     public contextDetailModel: ContextDetailModel;
+    public showUpdateContextDialog: boolean;
     private contextId: number;
 
     constructor(
@@ -85,6 +86,6 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public updateParamValues(): void {
-        
+        this.showUpdateContextDialog = true;
     }
 }
