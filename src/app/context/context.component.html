@@ -4,10 +4,12 @@
         <p-column field="eventScenario" header="" [style]="{'width':'5%', 'text-align':'center'}">
             <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
                 <div class="w-100 h-100 link" (click)="navigateToDetail(entry)">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i class="fa fa-search text-primary" aria-hidden="true"></i>
                 </div>
             </ng-template>
         </p-column>
     </p-treeTable>
-    <button type="button" class="btn btn-primary margin-top-16" (click)="newContext()">Create Context</button>
+    <button type="button" class="btn btn-primary margin-top-16" (click)="openContextDialog()">Create Context</button>
 </div>
+
+<add-update-context-dialog [display]="showCreateContextDialog" (displayChange)="showCreateContextDialog = false"></add-update-context-dialog>

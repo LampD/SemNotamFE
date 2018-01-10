@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService, SettingsService } from '../common/index';
 import { TreeNode } from 'primeng/components/common/treenode';
-import { ParameterType, ContextDetailModel } from './context';
+import { ParameterType, ContextDetailModel, ParameterTypeValues } from './context';
 
 @Injectable()
 export class ContextService {
@@ -21,5 +21,9 @@ export class ContextService {
 
     public getContextDetailModel(contextId: number): Promise<ContextDetailModel> {
         return this.httpService.get<ContextDetailModel>(this.settingsService.serverPath + 'context/' + 1);
+    }
+
+    public getParameterTypeValues(): Promise<Array<ParameterTypeValues>> {
+        return this.httpService.get<Array<ParameterTypeValues>>(this.settingsService.serverPath + 'parameterTypeValues');
     }
 }

@@ -11,6 +11,8 @@ import { ContextService } from '../context.service';
 export class ContextDetailComponent implements OnInit {
 
     public contextDetailModel: ContextDetailModel;
+    public showUpdateContextDialog: boolean;
+    public showAddRuleDeveloperDialog: boolean;
     private contextId: number;
 
     constructor(
@@ -26,6 +28,10 @@ export class ContextDetailComponent implements OnInit {
         });
 
         this.contextDetailModel = await this.contextService.getContextDetailModel(this.contextId);
+    }
+
+    public addRuleDeveloper(): void {
+        this.showAddRuleDeveloperDialog = true;
     }
 
     public removeRuleDeveloper(ruleDeveloper: RuleDeveloper): void {
@@ -85,6 +91,6 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public updateParamValues(): void {
-        
+        this.showUpdateContextDialog = true;
     }
 }

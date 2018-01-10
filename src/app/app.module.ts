@@ -14,7 +14,8 @@ import {
     SharedModule,
     DropdownModule,
     TreeTableModule,
-    TreeNode
+    TreeNode,
+    DialogModule
 } from 'primeng/primeng';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,6 +53,7 @@ import { ContextComponent } from './context/context.component';
 import { ContextService } from './context/context.service';
 import { ContextDetailComponent } from './context/context-detail/context-detail.component';
 import { AddUpdateContextDialogComponent } from './context/add-update-context-dialog/add-update-context-dialog.component';
+import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-dialog/add-rule-developer-dialog.component';
 
 
 @NgModule({
@@ -70,7 +72,8 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         NewMessageComponent,
         ContextDetailComponent,
         AddUpdateContextDialogComponent,
-        ParameterDetailComponent
+        ParameterDetailComponent,
+        AddRuleDeveloperDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -86,7 +89,8 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         DataTableModule,
         SharedModule,
         DropdownModule,
-        TreeTableModule
+        TreeTableModule,
+        DialogModule
     ],
     providers: [
         SettingsService,
