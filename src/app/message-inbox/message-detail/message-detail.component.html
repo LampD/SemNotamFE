@@ -1,27 +1,57 @@
 <div class="content-container" *ngIf="message != null">
     <div class="container-fluid">
         <div class="row">
-            <h3>{{ message.title }}</h3>
+            <div class="col-md-12 no-padding">
+                <h3>{{ message.title }}</h3>
+            </div>
         </div>
 
-        <h5>Status</h5>
-        <p>{{ message.status }}</p>
+        <div class="row">
+            <div class="col-md-12 no-padding">
+                <h5>Status</h5>
+                <p>{{ message.status }}</p>
+            </div>
+        </div>
 
-        <h5>Time</h5>
-        <p>{{ message.time }}</p>
+        <div class="row">
+            <div class="col-md-12 no-padding">
+                <h5>Time</h5>
+                <p>{{ message.time }}</p>
+            </div>
+        </div>
 
-        <h5>Type</h5>
-        <p>{{ message.type }}</p>
+        <div class="row">
+            <div class="col-md-12 no-padding">
+                <h5>Type</h5>
+                <p>{{ message.type }}</p>
+            </div>
+        </div>
 
-        <h5>Element</h5>
-        <p>{{ message.element }}</p>
+        <div class="row">
+            <div class="col-md-12 no-padding">
+                <h5>Element</h5>
+                <p>{{ message.element }}</p>
+            </div>
+        </div>
 
-        <h5>Sender</h5>
-        <p>{{ message.sender }}</p>
+        <div class="row">
+            <div class="col-md-12 no-padding">
+                <h5>Sender</h5>
+                <p>{{ message.sender }}</p>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-12 no-padding">
+                <h5>Text</h5>
+                <p>{{ message.text }}</p>
+            </div>
+        </div>
 
-        <h5>Text</h5>
-        <p>{{ message.text }}</p>
-
-        <button type="button" class="btn btn-primary">Acknowledge</button>
+        <div class="row">
+            <div class="col-md-12 no-padding">
+                    <button type="button" class="btn btn-primary">Acknowledge</button>
+            </div>
+        </div>
     </div>
 </div>

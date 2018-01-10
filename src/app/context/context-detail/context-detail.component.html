@@ -1,0 +1,117 @@
+<div class="container-fluid content-container" *ngIf="contextDetailModel">
+    <p-dataTable [value]="contextDetailModel.ruleDevelopers">
+        <p-header>RuleDevelopers</p-header>
+        <p-column field="id" header="ID" [style]="{'width':'5%', 'text-align':'center'}"></p-column>
+        <p-column field="name" header="Name"></p-column>
+        <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+            <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="header">
+                <div class="w-100 h-100 link" (click)="addRuleDeveloper()">
+                    <i class="fa fa-plus text-success" aria-hidden="true"></i>
+                </div>
+            </ng-template>
+            <ng-template let-col let-ruleDeveloper="rowData" let-ri="rowIndex" pTemplate="body">
+                <div class="w-100 h-100 link" (click)="removeRuleDeveloper(ruleDeveloper)">
+                    <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                </div>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+
+    <div class="margin-top-32">
+        <p-dataTable [value]="contextDetailModel.businessrules">
+            <p-header>BusinessRules</p-header>
+            <p-column field="name" header="Name" [style]="{'width':'5%', 'text-align':'center'}"></p-column>
+            <p-column field="description" header="Beschreibung"></p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="decontextualiseRule(rule)">
+                            <i class="fa fa-arrow-up text-primary" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="contextualiseRule(rule)">
+                        <i class="fa fa-arrow-down text-primary" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="editRule(rule)">
+                        <i class="fa fa-pencil-square text-primary" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="header">
+                    <div class="w-100 h-100 link" (click)="addRule()">
+                        <i class="fa fa-plus text-success" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+                <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="removeRule(rule)">
+                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+        </p-dataTable>
+    </div>
+
+    <div class="margin-top-32">
+        <p-dataTable [value]="contextDetailModel.businessTerms">
+            <p-header>BusinessTerms</p-header>
+            <p-column field="name" header="Name" [style]="{'width':'5%', 'text-align':'center'}"></p-column>
+            <p-column field="description" header="Beschreibung"></p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="decontextualiseTerm(term)">
+                            <i class="fa fa-arrow-up text-primary" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="contextualiseTerm(term)">
+                        <i class="fa fa-arrow-down text-primary" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="editTerm(term)">
+                        <i class="fa fa-pencil-square text-primary" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="header">
+                    <div class="w-100 h-100 link" (click)="addTerm()">
+                        <i class="fa fa-plus text-success" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="removeTerm(term)">
+                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+        </p-dataTable>
+    </div>
+    
+    <div class="row">
+        <div class="col-auto ">
+            <button type="button" class="btn btn-primary margin-top-16" (click)="mergeContext()">Merge Context</button>
+        </div>    
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary margin-top-16" (click)="splitContext()">Split Context</button>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary margin-top-16" (click)="deleteContext()">Delete Context</button>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary margin-top-16" (click)="updateParamValues()">Update Param-Values</button>
+        </div>
+    </div>
+    
+</div>
