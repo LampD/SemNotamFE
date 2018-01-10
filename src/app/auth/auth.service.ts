@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 
 import { AuthConstants } from './auth';
 import { AuthManager } from './auth-manager.service'
+import { User } from '../user/user';
 
 @Injectable()
 export class AuthService {
 
+    public currentUser: User;
     constructor(
         private authManager: AuthManager, 
         private route: Router
@@ -18,9 +20,9 @@ export class AuthService {
     }
 
     public async login(email: string, password: string): Promise<void> {
-        const user = await this.authManager.login(email, password);
-        sessionStorage.setItem('UserId', user.id + '');
-        sessionStorage.setItem('Role', user.role);
+        this.currentUser = await this.authManager.login(email, password);
+        sessionStorage.setItem('UserId', this.currentUser.id + '');
+        sessionStorage.setItem('Role', this.currentUser.role);
     }
 
     public async logout(logoutFromServer: boolean): Promise<void> {
