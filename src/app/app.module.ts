@@ -51,6 +51,7 @@ import { ParameterDetailComponent } from './parameter/parameter-detail/parameter
 import { ContextComponent } from './context/context.component';
 import { ContextService } from './context/context.service';
 import { ContextDetailComponent } from './context/context-detail/context-detail.component';
+import { AddUpdateContextDialogComponent } from './context/add-update-context-dialog/add-update-context-dialog.component';
 
 
 @NgModule({
@@ -67,8 +68,9 @@ import { ContextDetailComponent } from './context/context-detail/context-detail.
         LoadingIndicatorComponent,
         MessageDetailComponent,
         NewMessageComponent,
-        ParameterDetailComponent,
-        ContextDetailComponent
+        ContextDetailComponent,
+        AddUpdateContextDialogComponent,
+        ParameterDetailComponent
     ],
     imports: [
         BrowserModule,
