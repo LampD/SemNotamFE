@@ -8,7 +8,7 @@ import { LoadingIndicatorService } from './common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-    
+
     public title: string = 'app';
     public width: number;
     public isLoading: boolean;
