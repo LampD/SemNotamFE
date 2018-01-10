@@ -329,6 +329,16 @@
                 }
             ]
         }
-  ]
+    ],
+
+    "contexualiseDe": [
+        "<allInterest/allFlightPhases,allEventScenarios>",
+        "<aircraft/allFlightPhases,obstruction>",
+        "<helicopter/allFlightPhases/obstruction>",
+        "<aircraft/onground/closure>",
+        "<landplane/onground/runwayClosure>",
+        "<landplane/allFlightPhases/aerodromBeaconStatus>",
+        "<aircraft/onGround/aerodromEquipment>"
+    ]
 }
 
