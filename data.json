@@ -25,8 +25,6 @@
             "email": "dominik.lamprecht4@icloud.com"
         }
     ],
-
-  ],
   
      "message": [
         {
@@ -248,66 +246,65 @@
         }
     ],
 
-  "parameter": [
-
-    {
-      "id":1,
-      "name":"Interest",
-      "detParamValue":"",
-      "parameterValues":[
+    "parameter": [
         {
-          "data": {
-            "id": 2,
-            "name": "AllInterest"
-          },
-          "children": [
-            {
-              "data": {
-                "id": 3,
-                "name": "aircraft"
-              },
-              "children": [
+            "id":1,
+            "name":"Interest",
+            "detParamValue":"",
+            "parameterValues":[
                 {
                 "data": {
-                  "id": 4,
-                  "name": "landscape"
+                    "id": 2,
+                    "name": "AllInterest"
                 },
-                "children": []
-              },
-                {
-                  "data": {
-                    "id": 5,
-                    "name": "seaplane"
-                  },
-                  "children": []
+                    "children": [
+                        {
+                            "data": {
+                                "id": 3,
+                                "name": "aircraft"
+                        },
+                            "children": [
+                                {
+                                    "data": {
+                                    "id": 4,
+                                    "name": "landscape"
+                                },
+                                "children": []
+                            },
+                                {
+                                "data": {
+                                    "id": 5,
+                                    "name": "seaplane"
+                                },
+                                "children": []
+                                }
+                            ]
+                        }
+                    ]
                 }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name":"Flight Phase",
-      "detParamValue":"",
-      "parameterValues":[
+            ]
+        },
         {
-          "data": {
-            "name": "time"
-          },
-          "children": [
-            {
-              "data": {
-                "id": 2,
-                "name": "destination"
-              },
-              "children": []
-            }
-          ]
+            "id": 2,
+            "name":"Flight Phase",
+            "detParamValue":"",
+            "parameterValues":[
+                {
+                    "data": {
+                        "name": "time"
+                    },
+                    "children": [
+                        {
+                            "data": {
+                                "id": 2,
+                                "name": "destination"
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
   ]
 }
 

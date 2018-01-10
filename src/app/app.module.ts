@@ -68,13 +68,9 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         LoadingIndicatorComponent,
         MessageDetailComponent,
         NewMessageComponent,
-<<<<<<< HEAD
         ContextDetailComponent,
-        AddUpdateContextDialogComponent
-=======
-        ParameterDetailComponent,
-        ContextDetailComponent
->>>>>>> 04e3a53311ddc7a84fc0ce01ab0c39df73bef2fa
+        AddUpdateContextDialogComponent,
+        ParameterDetailComponent
     ],
     imports: [
         BrowserModule,
