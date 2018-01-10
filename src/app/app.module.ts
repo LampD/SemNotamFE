@@ -16,7 +16,6 @@ import {
     TreeTableModule,
     TreeNode
 } from 'primeng/primeng';
-import { SelectModule } from 'angular2-select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,7 +30,6 @@ import {
     MessageService,
     MessageDetailComponent
 } from './message-inbox';
-import { ContextComponent } from './context';
 import { ParameterComponent } from './parameter';
 import { NotamComponent } from './notam';
 import { TransactionComponent } from './transaction';
@@ -50,6 +48,10 @@ import { NewMessageComponent } from './message-inbox/new-message/new-message.com
 import { UserService } from './user';
 import {ParameterService} from './parameter/parameter.service';
 import { ParameterDetailComponent } from './parameter/parameter-detail/parameter-detail.component';
+import { ContextComponent } from './context/context.component';
+import { ContextService } from './context/context.service';
+import { ContextDetailComponent } from './context/context-detail/context-detail.component';
+
 
 @NgModule({
     declarations: [
@@ -65,12 +67,12 @@ import { ParameterDetailComponent } from './parameter/parameter-detail/parameter
         LoadingIndicatorComponent,
         MessageDetailComponent,
         NewMessageComponent,
-        ParameterDetailComponent
+        ParameterDetailComponent,
+        ContextDetailComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        SelectModule,
         FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,
@@ -93,7 +95,9 @@ import { ParameterDetailComponent } from './parameter/parameter-detail/parameter
         LoadingIndicatorService,
         MessageService,
         ParameterService,
-        UserService
+        UserService,
+        UserService,
+        ContextService
     ],
     bootstrap: [AppComponent]
 })
