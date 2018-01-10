@@ -21,6 +21,11 @@ export class ParameterComponent implements OnInit {
 
   public async ngOnInit() {
       this.parameters = await this.parameterService.getParameter();
+      console.log(this.parameters);
+  }
+
+  public showDetails(parameter: Parameter){
+    this.router.navigate(['parameterDetails'], { queryParams: { id: parameter.id } } );
   }
 
 }

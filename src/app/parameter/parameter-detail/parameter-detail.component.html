@@ -1,3 +1,13 @@
-<p>
-  parameter-detail works!
-</p>
+<div class="container-fluid content-container">
+  <div class="form-group">
+    <label>detParameterValue</label>
+    <textarea type="text" rows="4" class="form-control" ></textarea>
+  </div>
+
+  <div class="form-group">
+    <p-treeTable [value]="parameterValues">
+      <p-column field="name" header="Name"></p-column>
+    </p-treeTable>
+  </div>
+</div>
+

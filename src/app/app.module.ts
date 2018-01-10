@@ -12,7 +12,9 @@ import { ToastrModule } from 'ngx-toastr';
 import {
     DataTableModule,
     SharedModule,
-    DropdownModule
+    DropdownModule,
+    TreeTableModule,
+    TreeNode
 } from 'primeng/primeng';
 import { SelectModule } from 'angular2-select';
 
@@ -20,11 +22,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login';
-import { 
+import {
     SideBarComponent,
-    HeaderComponent 
+    HeaderComponent
 } from './page';
-import { 
+import {
     MessageInboxComponent,
     MessageService,
     MessageDetailComponent
@@ -33,19 +35,21 @@ import { ContextComponent } from './context';
 import { ParameterComponent } from './parameter';
 import { NotamComponent } from './notam';
 import { TransactionComponent } from './transaction';
-import { 
+import {
     HttpService,
     SettingsService,
     LoadingIndicatorComponent,
     LoadingIndicatorService
 } from './common';
-import { 
+import {
     AuthManager,
     AuthService
 } from './auth';
 import { AuthGuard } from './auth/auth.guard';
 import { NewMessageComponent } from './message-inbox/new-message/new-message.component';
 import { UserService } from './user';
+import {ParameterService} from './parameter/parameter.service';
+import { ParameterDetailComponent } from './parameter/parameter-detail/parameter-detail.component';
 
 @NgModule({
     declarations: [
@@ -60,7 +64,8 @@ import { UserService } from './user';
         TransactionComponent,
         LoadingIndicatorComponent,
         MessageDetailComponent,
-        NewMessageComponent
+        NewMessageComponent,
+        ParameterDetailComponent
     ],
     imports: [
         BrowserModule,
@@ -76,7 +81,8 @@ import { UserService } from './user';
         HttpClientModule,
         DataTableModule,
         SharedModule,
-        DropdownModule
+        DropdownModule,
+        TreeTableModule
     ],
     providers: [
         SettingsService,
@@ -86,6 +92,7 @@ import { UserService } from './user';
         AuthGuard,
         LoadingIndicatorService,
         MessageService,
+        ParameterService,
         UserService
     ],
     bootstrap: [AppComponent]

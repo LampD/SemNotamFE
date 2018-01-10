@@ -26,7 +26,7 @@
   }
   ],
 
-  
+
   "message": [
   {
 	"id": 1,
@@ -109,5 +109,66 @@
     "type": "ContextAdded"
   }
 
+  ],
+  "parameter": [
+
+    {
+      "id":1,
+      "name":"Interest",
+      "detParamValue":"",
+      "parameterValues":[
+        {
+          "data": {
+            "id": 2,
+            "name": "AllInterest"
+          },
+          "children": [
+            {
+              "data": {
+                "id": 3,
+                "name": "aircraft"
+              },
+              "children": [
+                {
+                "data": {
+                  "id": 4,
+                  "name": "landscape"
+                },
+                "children": []
+              },
+                {
+                  "data": {
+                    "id": 5,
+                    "name": "seaplane"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name":"Flight Phase",
+      "detParamValue":"",
+      "parameterValues":[
+        {
+          "data": {
+            "name": "time"
+          },
+          "children": [
+            {
+              "data": {
+                "id": 2,
+                "name": "destination"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

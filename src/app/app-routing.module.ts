@@ -8,12 +8,13 @@ import { ParameterComponent } from './parameter/index';
 import { NotamComponent } from './notam/index';
 import { TransactionComponent } from './transaction/index';
 import { AuthGuard } from './auth/auth.guard';
+import {ParameterDetailComponent} from './parameter/parameter-detail/parameter-detail.component';
 
 const routes: Routes = [
-    { 
-        path: '', 
-        redirectTo: 'login', 
-        pathMatch: 'full' 
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
     },
     {
         path: 'login',
@@ -25,13 +26,13 @@ const routes: Routes = [
         canActivate: [ AuthGuard ]
     },
     {
-        path: 'message', 
-        component: MessageDetailComponent, 
+        path: 'message',
+        component: MessageDetailComponent,
         canActivate: [ AuthGuard ],
     },
     {
-        path: 'newMessage', 
-        component: NewMessageComponent, 
+        path: 'newMessage',
+        component: NewMessageComponent,
         canActivate: [ AuthGuard ],
     },
     {
@@ -53,6 +54,11 @@ const routes: Routes = [
         path: 'transaction',
         component: TransactionComponent,
         canActivate: [ AuthGuard ]
+    },
+    {
+      path: 'parameterDetails',
+      component: ParameterDetailComponent,
+      canActivate: [ AuthGuard ]
     }
 ];
 
