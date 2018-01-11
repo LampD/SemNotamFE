@@ -25,6 +25,10 @@ export class ContextService {
     }
 
     public getParameterTypeValues(): Promise<Array<ParameterTypeValues>> {
-        return this.httpService.get<Array<ParameterTypeValues>>(this.settingsService.serverPath + 'parameterTypeValues');
+        return this.httpService.get<Array<ParameterTypeValues>>(this.settingsService.serverPath + 'parameters/withValues');
+    }
+
+    public removeRule(contextId :String, ruleId :String): Promise<ContextDetailModel> {
+        return this.httpService.delete<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule/' + ruleId);
     }
 }

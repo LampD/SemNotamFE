@@ -7,7 +7,7 @@
         <div class="form-group no-margin margin-top-16">
             <label>{{ parameter.name }}</label>
         </div>
-        <p-dropdown [options]="parameter.values" [(ngModel)]="selectedCity" optionLabel="value" [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
+        <p-dropdown [options]="parameter.parameterValues" [(ngModel)]="selectedCity" optionLabel="name" [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
     </div>
 
     <p-footer>

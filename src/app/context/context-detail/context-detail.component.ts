@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContextDetailModel, RuleDeveloper, BusinessItem } from '../context';
+import { ContextDetailModel, RuleDeveloper, BusinessRule } from '../context';
 import { ContextService } from '../context.service';
 
 @Component({
@@ -34,48 +34,27 @@ export class ContextDetailComponent implements OnInit {
         this.showAddRuleDeveloperDialog = true;
     }
 
-    public removeRuleDeveloper(ruleDeveloper: RuleDeveloper): void {
+    public async removeRuleDeveloper(ruleDeveloper: RuleDeveloper) {
+    }
+
+    public decontextualiseRule(rule: BusinessRule): void {
 
     }
 
-    public decontextualiseRule(rule: BusinessItem): void {
+    public contextualiseRule(rule: BusinessRule): void {
 
     }
 
-    public contextualiseRule(rule: BusinessItem): void {
+    public editRule(rule: BusinessRule): void {
 
     }
 
-    public editRule(rule: BusinessItem): void {
+    public addRule(rule: BusinessRule): void {
 
     }
 
-    public addRule(rule: BusinessItem): void {
-
-    }
-
-    public removeRule(rule: BusinessItem): void {
-
-    }
-
-    public decontextualiseTerm(term: BusinessItem): void {
-
-    }
-
-    public contextualiseTerm(term: BusinessItem): void {
-
-    }
-
-    public editTerm(term: BusinessItem): void {
-
-    }
-
-    public addTerm(term: BusinessItem): void {
-
-    }
-
-    public removeTerm(term: BusinessItem): void {
-
+    public async removeRule(rule: BusinessRule) {
+        this.contextDetailModel = await this.contextService.removeRule(this.contextId, rule.id);
     }
 
     public mergeContext(): void {
