@@ -1,3 +1,20 @@
-<p>
-  notam works!
-</p>
+<div class="container-fluid content-container" *ngIf="!isLoading">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="interest">interest</label>
+            <input type="text" name="interest" [(ngModel)]="iSpec.interest" id="interest">
+        </div>
+    
+        <div class="form-group">
+            <label for="flightPhase">flightPhase</label>
+            <input type="text" name="flightPhase" [(ngModel)]="iSpec.flightPhase" id="flightPhase">
+        </div>
+    
+        <button type="submit" class="btn btn-primary margin-top-8">Query</button>
+    </form>
+
+    <p-dataTable [value]="semNotams" selectionMode="single" (onRowClick)="navigateToDetail($event)">
+        <p-column field="notam.name" header="Notam" [style]="{'width':'20%', 'text-align':'center'}"></p-column>
+        <p-column field="results" header="Results" [style]="{'width':'80%'}"></p-column>
+    </p-dataTable>
+</div>

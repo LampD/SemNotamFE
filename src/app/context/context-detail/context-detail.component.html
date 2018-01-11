@@ -18,10 +18,10 @@
     </p-dataTable>
 
     <div class="margin-top-32">
-        <p-dataTable [value]="contextDetailModel.businessrules">
+        <p-dataTable [value]="contextDetailModel.rules">
             <p-header>BusinessRules</p-header>
-            <p-column field="name" header="Name" [style]="{'width':'5%', 'text-align':'center'}"></p-column>
-            <p-column field="description" header="Beschreibung"></p-column>
+            <p-column field="id" header="Name" [style]="{'width':'10%', 'text-align':'center'}"></p-column>
+            <p-column field="body" header="Body"></p-column>
             <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
                 <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
                     <div class="w-100 h-100 link" (click)="decontextualiseRule(rule)">
@@ -51,47 +51,6 @@
                 </ng-template>
                 <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
                     <div class="w-100 h-100 link" (click)="removeRule(rule)">
-                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
-                    </div>
-                </ng-template>
-            </p-column>
-        </p-dataTable>
-    </div>
-
-    <div class="margin-top-32">
-        <p-dataTable [value]="contextDetailModel.businessTerms">
-            <p-header>BusinessTerms</p-header>
-            <p-column field="name" header="Name" [style]="{'width':'5%', 'text-align':'center'}"></p-column>
-            <p-column field="description" header="Beschreibung"></p-column>
-            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
-                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="decontextualiseTerm(term)">
-                            <i class="fa fa-arrow-up text-primary" aria-hidden="true"></i>
-                    </div>
-                </ng-template>
-            </p-column>
-            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
-                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="contextualiseTerm(term)">
-                        <i class="fa fa-arrow-down text-primary" aria-hidden="true"></i>
-                    </div>
-                </ng-template>
-            </p-column>
-            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
-                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="editTerm(term)">
-                        <i class="fa fa-pencil-square text-primary" aria-hidden="true"></i>
-                    </div>
-                </ng-template>
-            </p-column>
-            <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
-                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="header">
-                    <div class="w-100 h-100 link" (click)="addTerm()">
-                        <i class="fa fa-plus text-success" aria-hidden="true"></i>
-                    </div>
-                </ng-template>
-                <ng-template let-col let-term="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="removeTerm(term)">
                         <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                     </div>
                 </ng-template>

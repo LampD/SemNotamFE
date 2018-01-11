@@ -11,9 +11,9 @@ import { ContextService } from '../context.service';
 export class ContextDetailComponent implements OnInit {
 
     public contextDetailModel: ContextDetailModel;
+    private contextId: String;
     public showUpdateContextDialog: boolean;
     public showAddRuleDeveloperDialog: boolean;
-    private contextId: number;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -24,7 +24,7 @@ export class ContextDetailComponent implements OnInit {
         this.activatedRoute
         .queryParams
         .subscribe(params => {
-            this.contextId = +params['id'];
+            this.contextId = params['id'];
         });
 
         this.contextDetailModel = await this.contextService.getContextDetailModel(this.contextId);

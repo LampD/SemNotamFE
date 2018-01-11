@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QueryService } from './query.service';
+import { Property, SemNotam } from './query';
 
 @Component({
   selector: 'app-notam',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotamComponent implements OnInit {
 
-  constructor() { }
+    public isLoading: boolean;
+    public iSpec: Object;
+    public semNotams: Array<SemNotam>;
 
-  ngOnInit() {
-  }
+    constructor(
+      private queryService: QueryService,
+    ) { }
 
+    public async ngOnInit() {
+        this.isLoading = true;
+
+        try {
+            this.iSpec = await this.queryService.getISpec();
+            this.semNotams = await this.queryService.getSemNotams();
+        } catch(e) {
+            // TODO notification
+        } finally {
+            this.isLoading = false;
+        }
+    }
+
+    public async onSubmit() {
+        await this.queryService.updateIspec(this.iSpec);
+        this.semNotams = await this.queryService.getSemNotams();
+    }
 }

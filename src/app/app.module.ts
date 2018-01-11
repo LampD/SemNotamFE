@@ -15,6 +15,7 @@ import {
     DropdownModule,
     TreeTableModule,
     TreeNode,
+    FieldsetModule,
     DialogModule
 } from 'primeng/primeng';
 
@@ -51,6 +52,7 @@ import {ParameterService} from './parameter/parameter.service';
 import { ParameterDetailComponent } from './parameter/parameter-detail/parameter-detail.component';
 import { ContextComponent } from './context/context.component';
 import { ContextService } from './context/context.service';
+import { QueryService } from './notam/query.service';
 import { ContextDetailComponent } from './context/context-detail/context-detail.component';
 import { AddUpdateContextDialogComponent } from './context/add-update-context-dialog/add-update-context-dialog.component';
 import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-dialog/add-rule-developer-dialog.component';
@@ -90,6 +92,7 @@ import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-di
         SharedModule,
         DropdownModule,
         TreeTableModule,
+        FieldsetModule,
         DialogModule
     ],
     providers: [
@@ -103,7 +106,8 @@ import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-di
         ParameterService,
         UserService,
         UserService,
-        ContextService
+        ContextService,
+        QueryService
     ],
     bootstrap: [AppComponent]
 })

@@ -13,11 +13,11 @@ export class ParameterService {
   ) { }
 
   public getParameter(): Promise<Array<Parameter>> {
-    return this.http.get<Array<Parameter>>(this.settingsService.serverPath + 'parameter');
+    return this.http.get<Array<Parameter>>(this.settingsService.serverPath + 'parameters');
   }
 
   public loadParameter(id: number): Promise<Parameter> {
-    return this.http.get<Parameter>(this.settingsService.serverPath + 'parameter/' + id);
+    return this.http.get<Parameter>(this.settingsService.serverPath + 'parameters/' + id);
   }
 
 }

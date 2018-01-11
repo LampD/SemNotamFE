@@ -1,12 +1,18 @@
 import {TreeNode} from 'primeng/primeng';
 
 
-export interface Parameter {
-  id: number;
+export interface ParameterValue {
   name: string;
-  detParamValue: string;
-  parameterValues: TreeNode[];
+  children: Array<ParameterValue>;
 }
+
+export interface Parameter {
+  name: string;
+  detParamValue: Array<string>;
+  parameterValueHierarchy: ParameterValue;
+}
+
+
 
 
 
