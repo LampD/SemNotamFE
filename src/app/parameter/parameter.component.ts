@@ -25,7 +25,7 @@ export class ParameterComponent implements OnInit {
   }
 
   public showDetails(parameter: Parameter){
-    this.router.navigate(['parameterDetails'], { queryParams: { id: parameter.id } } );
+    this.router.navigate(['parameterDetails'], { queryParams: { id: parameter.name } } );
   }
 
 }

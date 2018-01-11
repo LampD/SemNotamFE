@@ -11,6 +11,12 @@ export class AuthManager {
     ) { }
 
     public login(email: string, password: string): Promise<User> {
+        return Promise.resolve({
+            "id": 1,
+            "name": "dominik",
+            "role": "RuleDeveloper",
+            "email": "dominik.lamprecht@icloud.com"
+        });
         return this.http.get<User>(this.settingsService.serverPath + 'User/1');
     }
 }

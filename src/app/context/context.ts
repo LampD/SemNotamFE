@@ -5,6 +5,12 @@ export interface ParameterType {
     field: string;
 }
 
+export interface Context {
+    name: string;
+    children: Array<Context>;
+    parameterValues: Map<String, String> ;
+}
+
 export interface ContextDetailModel {
     id: number;
     ruleDevelopers: Array<RuleDeveloper>;

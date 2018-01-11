@@ -11,7 +11,7 @@ import { ContextService } from '../context.service';
 export class ContextDetailComponent implements OnInit {
 
     public contextDetailModel: ContextDetailModel;
-    private contextId: number;
+    private contextId: String;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -22,7 +22,7 @@ export class ContextDetailComponent implements OnInit {
         this.activatedRoute
         .queryParams
         .subscribe(params => {
-            this.contextId = +params['id'];
+            this.contextId = params['id'];
         });
 
         this.contextDetailModel = await this.contextService.getContextDetailModel(this.contextId);

@@ -1,7 +1,7 @@
 <div class="container-fluid content-container" *ngIf="contexts">
     <p-treeTable [value]="contexts" (onRowClick)="navigateToDetail($event)">
-        <p-column *ngFor="let column of columns" field="{{ column.field }}" header="{{ column.name }}"></p-column>
-        <p-column field="eventScenario" header="" [style]="{'width':'5%', 'text-align':'center'}">
+        <p-column *ngFor="let column of columns" field="{{ column.name }}" header="{{ column.name }}"></p-column>
+        <p-column field="detailLink" header="" [style]="{'width':'5%', 'text-align':'center'}">
             <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
                 <div class="w-100 h-100 link" (click)="navigateToDetail(entry)">
                     <i class="fa fa-search" aria-hidden="true"></i>

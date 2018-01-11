@@ -6,5 +6,5 @@ export interface ISettings {
 
 @Injectable()
 export class SettingsService implements ISettings {
-    public serverPath = 'http://127.0.0.1:3000/';
+    public serverPath = 'http://127.0.0.1:8080/';
 }

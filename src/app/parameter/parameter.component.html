@@ -1,6 +1,5 @@
 <div class="container-fluid content-container">
   <p-dataTable [value]="parameters" selectionMode="single">
-    <p-column field="id" header="Id" [style]="{'width':'10%'}"></p-column>
     <p-column field="name" header="Name" [style]="{'width':'30%'}"></p-column>
     <p-column header="Details" [style]="{'width':'10%'}">
       <ng-template let-parameter="rowData" let-i="rowIndex" pTemplate="body">

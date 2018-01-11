@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ParameterService} from '../parameter.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoadingIndicatorService} from '../../common';
-import {Parameter} from '../parameter';
+import {Parameter, ParameterValue} from '../parameter';
 import {TreeNode} from 'primeng/primeng';
 
 @Component({
@@ -15,6 +15,7 @@ export class ParameterDetailComponent implements OnInit {
   public parameterValues: TreeNode[];
   public parameterId: number;
   public selectedParameter: Parameter;
+  public detParamValue: String;
 
   constructor(
     private loadingIndicatorService: LoadingIndicatorService,
@@ -30,8 +31,19 @@ export class ParameterDetailComponent implements OnInit {
         this.parameterId = params['id'];
       });
     this.selectedParameter = await this.parameterService.loadParameter(this.parameterId);
-    this.parameterValues = <TreeNode[]> this.selectedParameter.parameterValues;
+    this.parameterValues = [this.toTreeNode(this.selectedParameter.parameterValueHierarchy)];
+    this.detParamValue = this.selectedParameter.detParamValue.join('\n');
     console.log(this.parameterValues);
   }
+
+  private toTreeNode(parameterValue :ParameterValue) :TreeNode {
+    return {
+        data: {
+            name: parameterValue.name,
+        },
+        children: parameterValue.children.map(c => this.toTreeNode(c)),
+        expanded: true
+    };  
+}
 
 }
