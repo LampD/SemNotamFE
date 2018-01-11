@@ -14,15 +14,14 @@ export interface Context {
 export interface ContextDetailModel {
     id: number;
     ruleDevelopers: Array<RuleDeveloper>;
-    businessrules: Array<BusinessItem>;
-    businessTerms: Array<BusinessItem>;
+    businessrules: Array<BusinessRule>;
+    businessTerms: Array<BusinessRule>;
 }
 
 // BusinessItems represents Rules and Terms.
-export interface BusinessItem {
-    id: number;
-    name: string;
-    description: string;
+export interface BusinessRule {
+    id: string;
+    body: string;
 }
 
 export interface RuleDeveloper {

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd, Event as NavigationEvent } from 
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { AuthService } from '../../auth/index';
 
 @Component({
     selector: 'side-bar',
@@ -22,7 +23,8 @@ export class SideBarComponent implements OnInit, OnDestroy {
     constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private location: Location
+        private location: Location,
+        private authService: AuthService
     ) { }
 
     public ngOnInit() {   
@@ -39,7 +41,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     }
 
     public get isUserLoggedIn(): boolean {
-        return sessionStorage.getItem('UserId') != null ? true : false;
+        return this.authService.isUserLoggedIn();
     }
 
     public updateColor(): void {

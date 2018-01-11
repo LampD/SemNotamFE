@@ -1,10 +1,13 @@
+import { User } from "../user/user";
+
 export interface Message {
     id: number;
     time: Date;
-    sender: string;
+    sender: User;
     title: string;
     element: string;
     status: string;
     type: string;
-    text: string;
+    content: string;
+    recipients: Array<User>
 }

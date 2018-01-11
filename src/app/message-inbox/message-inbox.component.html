@@ -12,7 +12,7 @@
                 <span>{{message[col.field] | date: 'dd.MM.yyyy, h:mm' }}</span>
             </ng-template>
         </p-column>
-        <p-column field="sender" header="Sender" [style]="{'width':'20%'}"></p-column>
+        <p-column field="sender.name" header="Sender" [style]="{'width':'20%'}"></p-column>
         <p-column field="title" header="Title" [style]="{'width':'25%'}"></p-column>
         <p-column field="element" header="Element"></p-column>
     </p-dataTable>

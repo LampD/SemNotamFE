@@ -8,25 +8,31 @@ import { User } from '../user/user';
 @Injectable()
 export class AuthService {
 
-    public currentUser: User;
+    private _currentUser: User;
     constructor(
         private authManager: AuthManager, 
-        private route: Router
-    ) { }
+        private route: Router,
+    ) { 
+    }
 
-    public get isUserLoggedIn(): boolean {
-        const token = sessionStorage.getItem(AuthConstants.USERID);
+    public isUserLoggedIn(): boolean {
+        const token = this.currentUser.id;
         return token != null;
     }
 
+    public get currentUser(): User {
+        return this._currentUser || JSON.parse(sessionStorage.getItem('User'));
+    }
+
     public async login(email: string, password: string): Promise<void> {
-        this.currentUser = await this.authManager.login(email, password);
-        sessionStorage.setItem('UserId', this.currentUser.id + '');
+        debugger;
+        this._currentUser = await this.authManager.login(email, password);
+        sessionStorage.setItem('User', JSON.stringify(this.currentUser));
         sessionStorage.setItem('Role', this.currentUser.role);
     }
 
     public async logout(logoutFromServer: boolean): Promise<void> {
-        sessionStorage.removeItem(AuthConstants.USERID);
+        sessionStorage.removeItem('User');
         sessionStorage.removeItem(AuthConstants.ROLE);
         this.route.navigate(['/login']);
     }

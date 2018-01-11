@@ -13,14 +13,14 @@
             <h5>Title</h5>
         </div>
         <div class="row">
-            <input type="text" class="form-control">
+            <input type="text" [(ngModel)]="message.title" class="form-control">
         </div>
 
         <div class="row margin-top-16">
             <h5>Text</h5>
         </div>
         <div class="row">
-            <textarea class="form-control" rows="6"></textarea>
+            <textarea class="form-control" [(ngModel)]="message.content" rows="6"></textarea>
         </div>
     </div>
     <button type="button" class="btn btn-primary margin-top-16" (click)="newMessage()">Send Message</button>
