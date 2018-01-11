@@ -71,6 +71,9 @@
         <div class="col-auto">
             <button type="button" class="btn btn-primary margin-top-16" (click)="updateParamValues()">Update Param-Values</button>
         </div>
-    </div>
-    
+    </div>  
 </div>
+
+<add-update-context-dialog [contextId]="contextId" [display]="showUpdateContextDialog" (displayChange)="showUpdateContextDialog = false"></add-update-context-dialog>
+
+<add-rule-developer-dialog [contextId]="contextId" [display]="showAddRuleDeveloperDialog" (displayChange)="showAddRuleDeveloperDialog = false"></add-rule-developer-dialog>

@@ -15,7 +15,8 @@ import {
     DropdownModule,
     TreeTableModule,
     TreeNode,
-    FieldsetModule
+    FieldsetModule,
+    DialogModule
 } from 'primeng/primeng';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -54,6 +55,7 @@ import { ContextService } from './context/context.service';
 import { QueryService } from './notam/query.service';
 import { ContextDetailComponent } from './context/context-detail/context-detail.component';
 import { AddUpdateContextDialogComponent } from './context/add-update-context-dialog/add-update-context-dialog.component';
+import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-dialog/add-rule-developer-dialog.component';
 
 
 @NgModule({
@@ -72,7 +74,8 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         NewMessageComponent,
         ContextDetailComponent,
         AddUpdateContextDialogComponent,
-        ParameterDetailComponent
+        ParameterDetailComponent,
+        AddRuleDeveloperDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -89,7 +92,8 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
         SharedModule,
         DropdownModule,
         TreeTableModule,
-        FieldsetModule
+        FieldsetModule,
+        DialogModule
     ],
     providers: [
         SettingsService,

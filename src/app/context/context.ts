@@ -29,3 +29,12 @@ export interface RuleDeveloper {
     id: number;
     name: string;
 }
+
+export interface ParameterTypeValues {
+    name: string;
+    values: Array<Value>;
+}
+
+export interface Value{
+    value: string;
+}

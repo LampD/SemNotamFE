@@ -192,12 +192,36 @@
             "field": "interest"
         },
         {
-            "name": "flightPhase",
+            "name": "FlightPhase",
             "field": "flightPhase"
         },
         {
             "name": "EventScenario",
             "field": "eventScenario"
+        }
+    ],
+
+    "parameterTypeValues": [
+        {
+            "name": "Interest",
+            "values": [
+                {"value": "allInterest"}, 
+                {"value":"aircraft"}, 
+                {"value":"helicopter"}, 
+                {"value":"landplane"}
+            ]
+        },
+        {
+            "name": "FlightPhase",
+            "values": [
+                {"value": "allFlightPhases"}, {"value": "onGround"}
+            ]
+        },
+        {
+            "name": "EventScenario",
+            "values": [
+                {"value": "allEventScenarios"}, {"value": "obstruction"}, {"value": "closure"}, {"value": "runwayClosure"}, {"value": "aerodromeEquipment"}
+            ]
         }
     ],
 
@@ -305,6 +329,16 @@
                 }
             ]
         }
-  ]
+    ],
+
+    "contexualiseDe": [
+        "<allInterest/allFlightPhases,allEventScenarios>",
+        "<aircraft/allFlightPhases,obstruction>",
+        "<helicopter/allFlightPhases/obstruction>",
+        "<aircraft/onground/closure>",
+        "<landplane/onground/runwayClosure>",
+        "<landplane/allFlightPhases/aerodromBeaconStatus>",
+        "<aircraft/onGround/aerodromEquipment>"
+    ]
 }
 

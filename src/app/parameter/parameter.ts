@@ -8,7 +8,7 @@ export interface ParameterValue {
 
 export interface Parameter {
   name: string;
-  detParamValue: string;
+  detParamValue: Array<string>;
   parameterValueHierarchy: ParameterValue;
 }
 

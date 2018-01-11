@@ -4,10 +4,25 @@
     <textarea type="text" rows="4" [value]="detParamValue" class="form-control" ></textarea>
   </div>
 
-  <div class="form-group">
-    <p-treeTable [value]="parameterValues">
-      <p-column field="name" header="Name"></p-column>
-    </p-treeTable>
-  </div>
+    <div class="margin-top-32">
+        <p-treeTable [value]="parameterValues">
+            <p-column field="name" header="Name"></p-column>
+            <p-column header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link">
+                        <i class="fa fa-plus text-success" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+            <p-column header="" [style]="{'width':'5%', 'text-align':'center'}">
+                <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link">
+                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                    </div>
+                </ng-template>
+            </p-column>
+        </p-treeTable>
+        <button type="button" class="btn btn-primary margin-top-16">Delete Parameter</button>
+    </div>
 </div>
 

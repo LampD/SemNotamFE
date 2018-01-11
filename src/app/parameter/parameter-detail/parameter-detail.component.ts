@@ -6,9 +6,9 @@ import {Parameter, ParameterValue} from '../parameter';
 import {TreeNode} from 'primeng/primeng';
 
 @Component({
-  selector: 'app-parameter-detail',
-  templateUrl: './parameter-detail.component.html',
-  styleUrls: ['./parameter-detail.component.scss']
+    selector: 'parameter-detail',
+    templateUrl: './parameter-detail.component.html',
+    styleUrls: ['./parameter-detail.component.scss']
 })
 export class ParameterDetailComponent implements OnInit {
 

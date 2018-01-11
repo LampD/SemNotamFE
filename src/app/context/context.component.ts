@@ -15,6 +15,7 @@ export class ContextComponent implements OnInit {
 
     public columns: Array<Parameter>;
     public contexts: Array<TreeNode>;
+    public showCreateContextDialog: boolean;
 
     constructor(
         private contextService: ContextService,
@@ -44,5 +45,9 @@ export class ContextComponent implements OnInit {
 
     public newContext(): void {
         this.router.navigate(['newMessage']);
+    }
+
+    public openContextDialog(): void {
+        this.showCreateContextDialog = true;
     }
 }
