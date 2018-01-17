@@ -1,29 +1,25 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { User } from '../../user/user';
-import { UserService } from '../../user/index';
+import { BusinessRule } from '../context';
 
 @Component({
-    selector: 'add-rule-developer-dialog',
-    templateUrl: './add-rule-developer-dialog.component.html',
-    styleUrls: ['./add-rule-developer-dialog.component.scss']
+    selector: 'add-rule-dialog',
+    templateUrl: './add-rule-dialog.component.html',
+    styleUrls: ['./add-rule-dialog.component.scss']
 })
-export class AddRuleDeveloperDialogComponent implements OnInit {
+export class AddRuleDialogComponent implements OnInit {
 
     @Input() public contextId: number;
     @Input() public display: boolean;
     @Output() public displayChange: EventEmitter<any> = new EventEmitter();
     @Output() public callback: EventEmitter<any> = new EventEmitter();
 
-    public ruleDevelopers: Array<User>;
-    public ruleDeveloper: User;
+    public rule: BusinessRule;
     
     constructor(
-        private userService: UserService
     ) { }
 
     public async ngOnInit() {
-        this.ruleDevelopers = await this.userService.getNotAssignedRuleDevelopers(this.contextId);
-        this.ruleDeveloper = this.ruleDevelopers[0];
+        this.rule = {};
     }
 
     public ngOnDestroy(): void {
@@ -31,7 +27,7 @@ export class AddRuleDeveloperDialogComponent implements OnInit {
     }
 
     public async save() {
-        this.callback.emit(this.ruleDeveloper);
+        this.callback.emit(this.rule);
         this.onClose();
     }
 

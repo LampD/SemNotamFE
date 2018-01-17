@@ -10,7 +10,7 @@ export class AuthManager {
         private settingsService: SettingsService
     ) { }
 
-    public login(email: string, password: string): Promise<User> {
-        return this.http.get<User>(this.settingsService.serverPath + 'users/1');
+    public login(username: string, password: string): Promise<User> {
+        return this.http.post<User>(this.settingsService.serverPath + 'users/login', {username, password});
     }
 }

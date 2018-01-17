@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpService, SettingsService } from '../common/index';
 import { TreeNode } from 'primeng/components/common/treenode';
-import { ParameterType, ContextDetailModel, ParameterTypeValues, Context } from './context';
+import { ParameterType, ContextDetailModel, ParameterTypeValues, Context, BusinessRule } from './context';
 import { Parameter } from '../parameter/parameter';
+import { User } from '../user/index';
 
 @Injectable()
 export class ContextService {
@@ -30,5 +31,17 @@ export class ContextService {
 
     public removeRule(contextId :String, ruleId :String): Promise<ContextDetailModel> {
         return this.httpService.delete<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule/' + ruleId);
+    }
+
+    public removeRuleDeveloper(contextId :String, userId :number): Promise<ContextDetailModel> {
+        return this.httpService.delete<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/ruleDeveloper/' + userId);
+    }
+    
+    public addRuleDeveloper(contextId :String, user :User): Promise<ContextDetailModel> {
+        return this.httpService.post<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/ruleDeveloper', user);
+    }
+
+    public addRule(contextId :String, rule :BusinessRule): Promise<ContextDetailModel> {
+        return this.httpService.post<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule', rule);
     }
 }

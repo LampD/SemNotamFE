@@ -76,4 +76,6 @@
 
 <add-update-context-dialog [contextId]="contextId" [display]="showUpdateContextDialog" (displayChange)="showUpdateContextDialog = false"></add-update-context-dialog>
 
-<add-rule-developer-dialog [contextId]="contextId" [display]="showAddRuleDeveloperDialog" (displayChange)="showAddRuleDeveloperDialog = false"></add-rule-developer-dialog>
+<add-rule-developer-dialog [contextId]="contextId" [(display)]="showAddRuleDeveloperDialog" (callback)="addRuleDeveloperCallback($event)"></add-rule-developer-dialog>
+
+<add-rule-dialog [contextId]="contextId" [(display)]="showAddRuleDialog" (callback)="addRuleCallback($event)"></add-rule-dialog>

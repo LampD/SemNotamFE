@@ -53,9 +53,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
     }
 
     public logout(): void {
-        sessionStorage.removeItem('UserId');
-        sessionStorage.removeItem('Role');
-
-        this.router.navigate(['login']);
+        this.authService.logout();
     }
 }
