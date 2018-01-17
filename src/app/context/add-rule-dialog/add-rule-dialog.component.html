@@ -1,15 +1,19 @@
 <p-dialog [(visible)]="display" [closable]="false" [width]="400">
         <p-header>
-            Add RuleDeveloper
+            Add Rule
         </p-header>
-    
-        <div class="form-group no-margin margin-top-16">
-            <label>Name</label>
+        <div class="form-group">
+            <label for="id">id</label>
+            <input type="text" name="id" [(ngModel)]="rule.id" id="id">
         </div>
-        <p-dropdown [options]="ruleDevelopers" [(ngModel)]="ruleDeveloper" optionLabel="name" [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
     
+        <div class="form-group">
+            <label for="body">body</label>
+            <input type="text" name="body" [(ngModel)]="rule.body" id="body">
+        </div>
+
         <p-footer>
             <button type="button" class="btn btn-sm btn-danger" (click)="cancel()">Cancel</button>
             <button type="button" class="btn btn-sm btn-success" (click)="save()">Save</button>
         </p-footer>
-    </p-dialog>
+</p-dialog>

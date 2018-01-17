@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContextDetailModel, RuleDeveloper, BusinessRule } from '../context';
+import { ContextDetailModel, BusinessRule } from '../context';
 import { ContextService } from '../context.service';
+import { User } from '../../user/index';
 
 @Component({
     selector: 'context-detail',
@@ -14,6 +15,7 @@ export class ContextDetailComponent implements OnInit {
     private contextId: String;
     public showUpdateContextDialog: boolean;
     public showAddRuleDeveloperDialog: boolean;
+    public showAddRuleDialog: boolean;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -34,7 +36,8 @@ export class ContextDetailComponent implements OnInit {
         this.showAddRuleDeveloperDialog = true;
     }
 
-    public async removeRuleDeveloper(ruleDeveloper: RuleDeveloper) {
+    public async removeRuleDeveloper(ruleDeveloper: User) {
+        this.contextDetailModel = await this.contextService.removeRuleDeveloper(this.contextId, ruleDeveloper.id);
     }
 
     public decontextualiseRule(rule: BusinessRule): void {
@@ -50,7 +53,7 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public addRule(rule: BusinessRule): void {
-
+        this.showAddRuleDialog = true;
     }
 
     public async removeRule(rule: BusinessRule) {
@@ -71,5 +74,13 @@ export class ContextDetailComponent implements OnInit {
 
     public updateParamValues(): void {
         this.showUpdateContextDialog = true;
+    }
+
+    public async addRuleDeveloperCallback(ruleDeveloper :User) {
+        this.contextDetailModel = await this.contextService.addRuleDeveloper(this.contextId, ruleDeveloper);
+    }
+
+    public async addRuleCallback(rule :BusinessRule) {
+        this.contextDetailModel = await this.contextService.addRule(this.contextId, rule);
     }
 }

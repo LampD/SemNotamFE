@@ -56,6 +56,7 @@ import { QueryService } from './notam/query.service';
 import { ContextDetailComponent } from './context/context-detail/context-detail.component';
 import { AddUpdateContextDialogComponent } from './context/add-update-context-dialog/add-update-context-dialog.component';
 import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-dialog/add-rule-developer-dialog.component';
+import { AddRuleDialogComponent } from './context/add-rule-dialog/add-rule-dialog.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-di
         ContextDetailComponent,
         AddUpdateContextDialogComponent,
         ParameterDetailComponent,
-        AddRuleDeveloperDialogComponent
+        AddRuleDeveloperDialogComponent,
+        AddRuleDialogComponent
     ],
     imports: [
         BrowserModule,
