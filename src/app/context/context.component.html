@@ -12,4 +12,4 @@
     <button type="button" class="btn btn-primary margin-top-16" (click)="openContextDialog()">Create Context</button>
 </div>
 
-<add-update-context-dialog [display]="showCreateContextDialog" (displayChange)="showCreateContextDialog = false"></add-update-context-dialog>
+<add-update-context-dialog [(display)]="showCreateContextDialog" (callback)="addContextCallback($event)"></add-update-context-dialog>

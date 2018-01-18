@@ -15,7 +15,7 @@ export class UserService {
         return this.http.get<Array<User>>(this.settingsService.serverPath + 'users');
     }
 
-    public getNotAssignedRuleDevelopers(contextId: number): Promise<Array<User>> {
+    public getAllRuleDevelopers(): Promise<Array<User>> {
         return this.http.get<Array<User>>(this.settingsService.serverPath + 'users');
     }
 }

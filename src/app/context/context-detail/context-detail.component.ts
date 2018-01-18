@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContextDetailModel, BusinessRule } from '../context';
+import { ContextDetailModel, BusinessRule, Context } from '../context';
 import { ContextService } from '../context.service';
 import { User } from '../../user/index';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'context-detail',
@@ -15,11 +16,13 @@ export class ContextDetailComponent implements OnInit {
     private contextId: String;
     public showUpdateContextDialog: boolean;
     public showAddRuleDeveloperDialog: boolean;
-    public showAddRuleDialog: boolean;
+    public showAddUpdateRuleDialog: boolean;
+    public rule: BusinessRule;
 
     constructor(
         private activatedRoute: ActivatedRoute,
-        private contextService: ContextService
+        private contextService: ContextService,
+        private router: Router,
     ) { }
 
     public async ngOnInit() {
@@ -33,6 +36,7 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public addRuleDeveloper(): void {
+        this.rule = <BusinessRule>{};
         this.showAddRuleDeveloperDialog = true;
     }
 
@@ -49,11 +53,13 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public editRule(rule: BusinessRule): void {
-
+        this.rule = rule;        
+        this.showAddUpdateRuleDialog = true;
     }
 
     public addRule(rule: BusinessRule): void {
-        this.showAddRuleDialog = true;
+        this.rule = undefined;        
+        this.showAddUpdateRuleDialog = true;
     }
 
     public async removeRule(rule: BusinessRule) {
@@ -68,8 +74,9 @@ export class ContextDetailComponent implements OnInit {
 
     }
 
-    public deleteContext(): void {
-
+    public async deleteContext() {
+        await this.contextService.deleteContext(this.contextId);
+        this.router.navigate(['contexts']);
     }
 
     public updateParamValues(): void {
@@ -80,7 +87,11 @@ export class ContextDetailComponent implements OnInit {
         this.contextDetailModel = await this.contextService.addRuleDeveloper(this.contextId, ruleDeveloper);
     }
 
-    public async addRuleCallback(rule :BusinessRule) {
-        this.contextDetailModel = await this.contextService.addRule(this.contextId, rule);
+    public async addUpdateRuleCallback(rule :BusinessRule) {
+        this.contextDetailModel = await this.contextService.addUpdateRule(this.contextId, rule);
+    }
+
+    public async updateParamValuesCallback(context :Context) {
+        //this.contextDetailModel = await this.contextService.updateParamValues(context);
     }
 }

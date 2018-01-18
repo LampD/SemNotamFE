@@ -1,22 +1,23 @@
 <div class="container-fluid content-container">
   <div class="form-group">
     <label>detParamValue</label>
-    <textarea type="text" rows="4" [value]="detParamValue" class="form-control" ></textarea>
+    <textarea type="text" rows="4"  [(ngModel)]="detParamValue" class="form-control" ></textarea>
+    <button type="button" class="btn btn-primary margin-top-16" (click)="updateDetParamValue()">Update detParamValue</button>
   </div>
 
     <div class="margin-top-32">
         <p-treeTable [value]="parameterValues">
             <p-column field="name" header="Name"></p-column>
             <p-column header="" [style]="{'width':'5%', 'text-align':'center'}">
-                <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link">
+                <ng-template let-col let-parameterValue="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="addParameterValue(parameterValue)">
                         <i class="fa fa-plus text-success" aria-hidden="true"></i>
                     </div>
                 </ng-template>
             </p-column>
             <p-column header="" [style]="{'width':'5%', 'text-align':'center'}">
-                <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link">
+                <ng-template let-col let-parameterValue="rowData" let-ri="rowIndex" pTemplate="body">
+                    <div class="w-100 h-100 link" (click)="deleteParameterValue(parameterValue)">
                         <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                     </div>
                 </ng-template>
@@ -26,3 +27,5 @@
     </div>
 </div>
 
+
+<add-parameter-value-dialog [(display)]="showAddParameterValueDialog" (callback)="addParameterValueCallback($event)"></add-parameter-value-dialog>

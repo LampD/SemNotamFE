@@ -1,10 +1,5 @@
 import { User } from "../user/user";
 
-export interface ParameterType {
-    name: string;
-    field: string;
-}
-
 export interface Context {
     name: string;
     children: Array<Context>;
@@ -12,22 +7,14 @@ export interface Context {
 }
 
 export interface ContextDetailModel {
-    id: number;
+    name: string;
     ruleDevelopers: Array<User>;
     rules: Array<BusinessRule>;
+    parameterValues: Map<String, String> ;
 }
 
 // BusinessItems represents Rules and Terms.
 export interface BusinessRule {
     id: string;
     body: string;
-}
-
-export interface ParameterTypeValues {
-    name: string;
-    values: Array<Value>;
-}
-
-export interface Value{
-    value: string;
 }

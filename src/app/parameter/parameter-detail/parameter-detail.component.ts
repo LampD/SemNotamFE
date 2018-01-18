@@ -14,8 +14,11 @@ export class ParameterDetailComponent implements OnInit {
 
   public parameterValues: TreeNode[];
   public parameterId: number;
-  public selectedParameter: Parameter;
+  public parameter: Parameter;
   public detParamValue: String;
+  public showAddParameterValueDialog: boolean;
+
+  private selectedParameterValue: String;
 
   constructor(
     private loadingIndicatorService: LoadingIndicatorService,
@@ -30,9 +33,9 @@ export class ParameterDetailComponent implements OnInit {
       .subscribe(params => {
         this.parameterId = params['id'];
       });
-    this.selectedParameter = await this.parameterService.loadParameter(this.parameterId);
-    this.parameterValues = [this.toTreeNode(this.selectedParameter.parameterValueHierarchy)];
-    this.detParamValue = this.selectedParameter.detParamValue.join('\n');
+    this.parameter = await this.parameterService.loadParameter(this.parameterId);
+    this.parameterValues = [this.toTreeNode(this.parameter.parameterValueHierarchy)];
+    this.detParamValue = this.parameter.detParamValue.join('\n');
     console.log(this.parameterValues);
   }
 
@@ -44,6 +47,28 @@ export class ParameterDetailComponent implements OnInit {
         children: parameterValue.children.map(c => this.toTreeNode(c)),
         expanded: true
     };  
-}
+  }
+
+  public async deleteParameterValue(treeNode :TreeNode) {
+    this.parameter = await this.parameterService.deleteParameterValue(this.parameterId, treeNode.data.name);
+    this.parameterValues = [this.toTreeNode(this.parameter.parameterValueHierarchy)];
+  }
+
+  public async addParameterValue(treeNode :TreeNode) {
+    this.showAddParameterValueDialog = true;
+    this.selectedParameterValue = treeNode.data.name;
+  }
+
+  public async addParameterValueCallback(parameterValue :ParameterValue) {
+    parameterValue.parents = [<ParameterValue>{name:this.selectedParameterValue}];
+    this.parameter = await this.parameterService.addParameterValue(this.parameterId, parameterValue);
+    this.parameterValues = [this.toTreeNode(this.parameter.parameterValueHierarchy)];
+  }
+
+  public async updateDetParamValue() {
+    this.parameter.detParamValue = this.detParamValue.split('\n');
+    this.parameter = await this.parameterService.updateDetParamValue(this.parameterId, this.parameter);
+    this.parameterValues = [this.toTreeNode(this.parameter.parameterValueHierarchy)];
+  }
 
 }

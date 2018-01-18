@@ -1,13 +1,20 @@
-<p-dialog [(visible)]="display" [closable]="false" [width]="400">
+<p-dialog [visible]="display" [closable]="false" [width]="400">
     <p-header>
-        {{ contextId == null ? "Create new Context" : "Update Context"}}
+        {{ isAdd ? "Create new Context" : "Update Context"}}
     </p-header>
     
-    <div *ngFor="let parameter of parameterTypeValues">
+    <div *ngFor="let parameter of parameterWithValues">
         <div class="form-group no-margin margin-top-16">
             <label>{{ parameter.name }}</label>
         </div>
-        <p-dropdown [options]="parameter.parameterValues" [(ngModel)]="selectedCity" optionLabel="name" [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
+        <p-dropdown [options]="parameter.parameterValues" [(ngModel)]="selectedParameterValues[parameter.name]" optionLabel="name" [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
+    </div>
+
+    <div *ngIf="isAdd">
+        <div class="form-group no-margin margin-top-16">
+            <label>RuleDeveloper</label>
+        </div>
+        <p-dropdown [options]="ruleDevelopers" [(ngModel)]="ruleDeveloper" optionLabel="name" [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
     </div>
 
     <p-footer>

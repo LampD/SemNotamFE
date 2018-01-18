@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../user/user';
 import { UserService } from '../../user/index';
+import { ContextDetailModel } from '../context';
 
 @Component({
     selector: 'add-rule-developer-dialog',
@@ -9,7 +10,7 @@ import { UserService } from '../../user/index';
 })
 export class AddRuleDeveloperDialogComponent implements OnInit {
 
-    @Input() public contextId: number;
+    @Input() public context: ContextDetailModel;
     @Input() public display: boolean;
     @Output() public displayChange: EventEmitter<any> = new EventEmitter();
     @Output() public callback: EventEmitter<any> = new EventEmitter();
@@ -22,7 +23,8 @@ export class AddRuleDeveloperDialogComponent implements OnInit {
     ) { }
 
     public async ngOnInit() {
-        this.ruleDevelopers = await this.userService.getNotAssignedRuleDevelopers(this.contextId);
+        var allRuleDevelopers = await this.userService.getAllRuleDevelopers();
+        this.ruleDevelopers = allRuleDevelopers.filter(rd => !this.context.ruleDevelopers.find(crd=>crd.id === rd.id));
         this.ruleDeveloper = this.ruleDevelopers[0];
     }
 

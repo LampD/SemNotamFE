@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpService, SettingsService } from '../common/index';
 import { TreeNode } from 'primeng/components/common/treenode';
-import { ParameterType, ContextDetailModel, ParameterTypeValues, Context, BusinessRule } from './context';
-import { Parameter } from '../parameter/parameter';
+import { ContextDetailModel, Context, BusinessRule } from './context';
+import { Parameter, ParameterWithValues } from '../parameter/parameter';
 import { User } from '../user/index';
 
 @Injectable()
@@ -25,8 +25,8 @@ export class ContextService {
         return this.httpService.get<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId);
     }
 
-    public getParameterTypeValues(): Promise<Array<ParameterTypeValues>> {
-        return this.httpService.get<Array<ParameterTypeValues>>(this.settingsService.serverPath + 'parameters/withValues');
+    public getParameterWithValues(): Promise<Array<ParameterWithValues>> {
+        return this.httpService.get<Array<ParameterWithValues>>(this.settingsService.serverPath + 'parameters/withValues');
     }
 
     public removeRule(contextId :String, ruleId :String): Promise<ContextDetailModel> {
@@ -41,7 +41,15 @@ export class ContextService {
         return this.httpService.post<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/ruleDeveloper', user);
     }
 
-    public addRule(contextId :String, rule :BusinessRule): Promise<ContextDetailModel> {
-        return this.httpService.post<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule', rule);
+    public addUpdateRule(contextId :String, rule :BusinessRule): Promise<ContextDetailModel> {
+        return this.httpService.put<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule/'+rule.id, rule);
+    }
+
+    public addContext(context :Context): Promise<Context> {
+        return this.httpService.post<Context>(this.settingsService.serverPath + 'contexts', context);
+    }
+
+    public deleteContext(contextId :String): Promise<void> {
+        return this.httpService.delete<void>(this.settingsService.serverPath + 'contexts/' + contextId);
     }
 }
