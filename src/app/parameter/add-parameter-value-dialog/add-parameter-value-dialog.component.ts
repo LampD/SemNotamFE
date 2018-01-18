@@ -1,25 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BusinessRule } from '../context';
+import { ParameterValue, Parameter } from '../parameter';
 
 @Component({
-    selector: 'add-rule-dialog',
-    templateUrl: './add-rule-dialog.component.html',
-    styleUrls: ['./add-rule-dialog.component.scss']
+    selector: 'add-parameter-value-dialog',
+    templateUrl: './add-parameter-value-dialog.component.html',
+    styleUrls: ['./add-parameter-value-dialog.component.scss']
 })
-export class AddRuleDialogComponent implements OnInit {
+export class AddParameterValueDialogComponent implements OnInit {
 
     @Input() public contextId: number;
     @Input() public display: boolean;
     @Output() public displayChange: EventEmitter<any> = new EventEmitter();
+    public parameterValue: ParameterValue;
     @Output() public callback: EventEmitter<any> = new EventEmitter();
-
-    public rule: BusinessRule;
     
     constructor(
     ) { }
 
     public async ngOnInit() {
-        this.rule = {};
+        this.parameterValue = <ParameterValue>{};
     }
 
     public ngOnDestroy(): void {
@@ -27,7 +26,7 @@ export class AddRuleDialogComponent implements OnInit {
     }
 
     public async save() {
-        this.callback.emit(this.rule);
+        this.callback.emit(this.parameterValue);
         this.onClose();
     }
 

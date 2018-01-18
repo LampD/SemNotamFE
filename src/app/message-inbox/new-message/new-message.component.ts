@@ -4,6 +4,7 @@ import { User } from '../../user/user';
 import { MessageService } from '../message.service';
 import { AuthService } from '../../auth/auth.service';
 import { Message } from '../message';
+import { Router } from '@angular/router';
 
 export interface DropDownItem {
     label: string;
@@ -27,6 +28,7 @@ export class NewMessageComponent implements OnInit {
         private userService: UserService,
         private messageService: MessageService,
         private authService: AuthService,
+        private router: Router,
     ) { }
 
     public async ngOnInit() {
@@ -54,7 +56,7 @@ export class NewMessageComponent implements OnInit {
     public async newMessage() {
         this.message.recipients = [this.selectedRecipient];
         this.message.sender = this.authService.currentUser;
-        debugger;
         await this.messageService.sendMessage(this.message);
+        this.router.navigate(['messages']);
     }
 }

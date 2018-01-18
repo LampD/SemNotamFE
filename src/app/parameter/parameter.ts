@@ -2,6 +2,7 @@ import {TreeNode} from 'primeng/primeng';
 
 
 export interface ParameterValue {
+  parents: Array<ParameterValue>;
   name: string;
   children: Array<ParameterValue>;
 }
@@ -12,7 +13,7 @@ export interface Parameter {
   parameterValueHierarchy: ParameterValue;
 }
 
-
-
-
-
+export interface ParameterWithValues {
+  name: string;
+  parameterValues: Array<ParameterValue>;
+}

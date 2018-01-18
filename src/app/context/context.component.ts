@@ -3,7 +3,7 @@ import { MessageService } from '../message-inbox/index';
 import { Router } from '@angular/router';
 import { TreeNode } from 'primeng/components/common/treenode';
 import { ContextService } from './context.service';
-import { ParameterType, Context } from './context';
+import { Context } from './context';
 import { Parameter } from '../parameter/parameter';
 
 @Component({
@@ -49,5 +49,10 @@ export class ContextComponent implements OnInit {
 
     public openContextDialog(): void {
         this.showCreateContextDialog = true;
+    }
+
+    public async addContextCallback(context :Context) {
+        var rootContext = await this.contextService.addContext(context);
+        this.contexts = [this.toTreeNode(rootContext)];
     }
 }
