@@ -10,9 +10,9 @@ export class AuthService {
 
     private _currentUser: User;
     constructor(
-        private authManager: AuthManager, 
+        private authManager: AuthManager,
         private route: Router,
-    ) { 
+    ) {
     }
 
     public isUserLoggedIn(): boolean {

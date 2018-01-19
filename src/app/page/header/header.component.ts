@@ -6,17 +6,13 @@ import { AuthService } from '../../auth/index';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
     public width: number;
 
     constructor(
         private authService: AuthService
     ) { }
-    
-    ngOnInit() {
-        this.width = window.innerWidth - 250;
-    }
 
     public get userName(): string {
         return this.authService.currentUser ? this.authService.currentUser.name : '';

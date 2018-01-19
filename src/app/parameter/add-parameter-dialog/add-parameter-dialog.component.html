@@ -1,0 +1,25 @@
+<p-dialog [(visible)]="display" [closable]="false" [width]="600">
+  <p-header>
+    Add Parameter
+  </p-header>
+  <div class="content-container">
+    <div class="form-group">
+      <label for="name">name</label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="parameterName" id="name">
+    </div>
+    <div class="form-group">
+      <label for="rootParameterValue">Root Parameter</label>
+      <input type="text" name="rootParamValue" class="form-control" id="rootParameterValue" [(ngModel)]="parameterValue">
+    </div>
+    <div class="form-group">
+      <label for="detParamValue">detParamValue</label>
+      <textarea type="text" name="detParamValue" id="detParamValue" class="form-control" [(ngModel)]="detParamValue"></textarea>
+    </div>
+  </div>
+
+
+  <p-footer>
+    <button type="button" class="btn btn-sm btn-danger" (click)="cancel()">Cancel</button>
+    <button type="button" class="btn btn-sm btn-success" (click)="save()">Save</button>
+  </p-footer>
+</p-dialog>

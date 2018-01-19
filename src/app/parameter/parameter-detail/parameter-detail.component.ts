@@ -46,7 +46,7 @@ export class ParameterDetailComponent implements OnInit {
         },
         children: parameterValue.children.map(c => this.toTreeNode(c)),
         expanded: true
-    };  
+    };
   }
 
   public async deleteParameterValue(treeNode :TreeNode) {

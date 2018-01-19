@@ -7,7 +7,7 @@ import { HttpModule, Http } from '@angular/http';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, ToastrService, ToastrConfig } from 'ngx-toastr';
 
 import {
     DataTableModule,
@@ -39,7 +39,8 @@ import {
     HttpService,
     SettingsService,
     LoadingIndicatorComponent,
-    LoadingIndicatorService
+    LoadingIndicatorService,
+    NotificationService
 } from './common';
 import {
     AuthManager,
@@ -58,7 +59,9 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
 import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-dialog/add-rule-developer-dialog.component';
 import { AddUpdateRuleDialogComponent } from './context/add-update-rule-dialog/add-update-rule-dialog.component';
 import { AddParameterValueDialogComponent } from './parameter/add-parameter-value-dialog/add-parameter-value-dialog.component';
+import { AddParameterDialogComponent } from './parameter/add-parameter-dialog/add-parameter-dialog.component';
 import { DeContextualizeDialogComponent } from './context/de-contextualize-dialog/de-contextualize-dialog.component';
+
 
 
 @NgModule({
@@ -81,6 +84,7 @@ import { DeContextualizeDialogComponent } from './context/de-contextualize-dialo
         AddRuleDeveloperDialogComponent,
         AddUpdateRuleDialogComponent,
         AddParameterValueDialogComponent,
+        AddParameterDialogComponent
         DeContextualizeDialogComponent
     ],
     imports: [
@@ -91,7 +95,7 @@ import { DeContextualizeDialogComponent } from './context/de-contextualize-dialo
         AppRoutingModule,
         NgbModule.forRoot(),
         AngularFontAwesomeModule,
-        ToastrModule,
+        ToastrModule.forRoot(),
         HttpModule,
         HttpClientModule,
         DataTableModule,
@@ -113,7 +117,9 @@ import { DeContextualizeDialogComponent } from './context/de-contextualize-dialo
         UserService,
         UserService,
         ContextService,
-        QueryService
+        QueryService,
+        NotificationService,
+        ToastrService
     ],
     bootstrap: [AppComponent]
 })

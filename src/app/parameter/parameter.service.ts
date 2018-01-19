@@ -28,8 +28,16 @@ export class ParameterService {
     return this.http.post<Parameter>(this.settingsService.serverPath + 'parameters/' + id, parameterValue);
   }
 
+  public addParameter(newParameter: Parameter): Promise<Parameter> {
+    return this.http.post<Parameter>(this.settingsService.serverPath + 'parameters', newParameter);
+  }
+
   public updateDetParamValue(id: number, parameter: Parameter): Promise<Parameter> {
     return this.http.put<Parameter>(this.settingsService.serverPath + 'parameters/' + id, parameter);
+  }
+
+  public deleteParameter(parameter: Parameter): Promise<boolean> {
+    return this.http.delete<boolean>(this.settingsService.serverPath + 'parameters/' + parameter.name, parameter);
   }
 
 }

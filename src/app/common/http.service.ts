@@ -11,13 +11,33 @@ import { Observable } from 'rxjs/Observable';
 export class HttpService {
 
     private router: Router;
-    
+
     constructor(
-        private http: Http, 
+        private http: Http,
         private injector: Injector
     ) { }
 
+  private addAuthHeaderToOptions(options): any {
+    if (!options) {
+      options = {};
+    }
+
+    let user = JSON.parse(sessionStorage.getItem('User'));
+    if (user) {
+      if (options.headers) {
+        options.headers.append({ 'User': user.id });
+      } else {
+        const headers = new Headers({ 'User': user.id });
+        options.headers = headers;
+      }
+    }
+
+    console.log(user.id);
+    return options;
+  }
+
     public get<T>(url: any, options?: any): Promise<T> {
+      options = this.addAuthHeaderToOptions(options);
         return <Promise<T>>this.http.get(url, options)
             .map(this.extractData)
             .catch((e, o) => this.catchError(e))
@@ -25,6 +45,7 @@ export class HttpService {
     }
 
     public post<T>(url: any, data: any, options?: any): Promise<T> {
+      options = this.addAuthHeaderToOptions(options);
         return <Promise<T>>this.http.post(url, data, options)
             .map(this.extractData)
             .catch((e, o) => this.catchError(e))
@@ -32,6 +53,7 @@ export class HttpService {
     }
 
     public put<T>(url: any, data: any, options?: any): Promise<T> {
+      options = this.addAuthHeaderToOptions(options);
         return <Promise<T>>this.http.put(url, data, options)
             .map(this.extractData)
             .catch((e, o) => this.catchError(e))
@@ -39,6 +61,7 @@ export class HttpService {
     }
 
     public delete<T>(url: any, options?: any): Promise<T> {
+      options = this.addAuthHeaderToOptions(options);
         return <Promise<T>>this.http.delete(url, options)
             .map(this.extractData)
             .catch((e, o) => this.catchError(e))
