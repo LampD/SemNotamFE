@@ -17,7 +17,9 @@ export class ContextDetailComponent implements OnInit {
     public showUpdateContextDialog: boolean;
     public showAddRuleDeveloperDialog: boolean;
     public showAddUpdateRuleDialog: boolean;
+    public showDeContextualizeDialog: boolean;
     public rule: BusinessRule;
+    public isContextualize: boolean;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -45,11 +47,17 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public decontextualiseRule(rule: BusinessRule): void {
-
+        this.isContextualize = false;
+        this.showDeContextualizeDialog = true;
     }
 
     public contextualiseRule(rule: BusinessRule): void {
+        this.isContextualize = true;
+        this.showDeContextualizeDialog = true;
+    }
 
+    public deContextualizeCallback(contextString: string) {
+        this.showDeContextualizeDialog = false;
     }
 
     public editRule(rule: BusinessRule): void {
@@ -94,4 +102,6 @@ export class ContextDetailComponent implements OnInit {
     public async updateParamValuesCallback(context :Context) {
         //this.contextDetailModel = await this.contextService.updateParamValues(context);
     }
+
+
 }

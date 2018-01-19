@@ -13,6 +13,7 @@ import { Parameter } from '../parameter/parameter';
 })
 export class ContextComponent implements OnInit {
 
+    public isLoading: boolean;
     public columns: Array<Parameter>;
     public contexts: Array<TreeNode>;
     public showCreateContextDialog: boolean;
@@ -23,8 +24,15 @@ export class ContextComponent implements OnInit {
     ) { }
 
     public async ngOnInit() {
-        this.columns = await this.contextService.getParameterNames();
-        var rootContext = await this.contextService.getContextHierachy();
+        const result = await Promise.all([
+            this.contextService.getParameterNames(), 
+            this.contextService.getContextHierachy()
+        ]);
+        this.columns = result[0];
+        var rootContext = result[1];
+
+        // this.columns = await this.contextService.getParameterNames();
+        // var rootContext = await this.contextService.getContextHierachy();
         this.contexts = [this.toTreeNode(rootContext)];
     }
 
