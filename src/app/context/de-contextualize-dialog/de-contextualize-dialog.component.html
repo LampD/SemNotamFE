@@ -1,0 +1,15 @@
+<p-dialog [visible]="display" [closable]="false" [width]="600">
+    <p-header>
+        {{ isContextualize ? "Contextualize to" : "Decontextualize to"}}
+    </p-header>
+
+    <div class="form-group no-margin margin-top-16">
+        <label>Context</label>
+    </div>
+    <p-dropdown [options]="dropDownItems" [(ngModel)]="selectedContextString"  [style]="{'width':'100%'}" appendTo="body"></p-dropdown>
+
+    <p-footer>
+        <button type="button" class="btn btn-sm btn-danger" (click)="cancel()">Cancel</button>
+        <button type="button" class="btn btn-sm btn-success" (click)="save()">{{ isContextualize ? 'Contextualize' : 'Decontextualize'}}</button>
+    </p-footer>
+</p-dialog> 
