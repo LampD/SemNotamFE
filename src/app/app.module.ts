@@ -58,6 +58,7 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
 import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-dialog/add-rule-developer-dialog.component';
 import { AddUpdateRuleDialogComponent } from './context/add-update-rule-dialog/add-update-rule-dialog.component';
 import { AddParameterValueDialogComponent } from './parameter/add-parameter-value-dialog/add-parameter-value-dialog.component';
+import { DeContextualizeDialogComponent } from './context/de-contextualize-dialog/de-contextualize-dialog.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { AddParameterValueDialogComponent } from './parameter/add-parameter-valu
         ParameterDetailComponent,
         AddRuleDeveloperDialogComponent,
         AddUpdateRuleDialogComponent,
-        AddParameterValueDialogComponent
+        AddParameterValueDialogComponent,
+        DeContextualizeDialogComponent
     ],
     imports: [
         BrowserModule,
