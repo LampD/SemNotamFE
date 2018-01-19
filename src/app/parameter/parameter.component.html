@@ -1,14 +1,33 @@
 <div class="container-fluid content-container">
-    <p-dataTable [value]="parameters">
-        <p-column field="name" header="Name"></p-column>
-        <p-column header="Details" [style]="{'width':'5%'}">
-        <ng-template let-parameter="rowData" let-i="rowIndex" pTemplate="body">
-            <div class="w-100 text-center link" (click)="showDetails(parameter)">
-            <a><i class="fa fa-search text-primary" aria-hidden="true"></i></a>
-            </div>
-        </ng-template>
-        </p-column>
-    </p-dataTable>
+  <div class="row">
+    <div class="col-md-12" [style.height.px]="cardHeight">
+      <div class="card h-100">
+        <div class="card-header">Parameter<loading-indicator class="float-right" [isLoading]="loading"></loading-indicator></div>
+        <div class="card-body center">
+          <p-dataTable [value]="parameters">
+              <p-column field="name" header="Name"></p-column>
+              <p-column header="Details" [style]="{'width':'10%'}">
+              <ng-template let-parameter="rowData" let-i="rowIndex" pTemplate="body">
+                  <div class="w-100 text-center link" (click)="showDetails(parameter)">
+                  <a><i class="fa fa-search text-primary" aria-hidden="true"></i></a>
+                  </div>
+              </ng-template>
+              </p-column>
+            <p-column header="Delete" [style]="{'width':'10%'}">
+              <ng-template let-parameter="rowData" let-i="rowIndex" pTemplate="body">
+                  <div class="w-100 text-center link" (click)="deleteParameter(parameter)">
+                  <a><i class="fa fa-trash text-primary" aria-hidden="true"></i></a>
+                  </div>
+              </ng-template>
+              </p-column>
+          </p-dataTable>
 
-    <button type="button" class="btn btn-primary margin-top-16" (click)="newParameter()">Create Parameter</button>
+          <button type="button" class="btn btn-primary margin-top-16" (click)="newParameter()">Create Parameter</button>
+
+          <add-parameter-dialog [(display)]="displayAddParameter" (callback)="addParameterCallback($event)" ></add-parameter-dialog>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

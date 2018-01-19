@@ -7,7 +7,7 @@ import { HttpModule, Http } from '@angular/http';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, ToastrService, ToastrConfig } from 'ngx-toastr';
 
 import {
     DataTableModule,
@@ -39,7 +39,8 @@ import {
     HttpService,
     SettingsService,
     LoadingIndicatorComponent,
-    LoadingIndicatorService
+    LoadingIndicatorService,
+    NotificationService
 } from './common';
 import {
     AuthManager,
@@ -58,6 +59,7 @@ import { AddUpdateContextDialogComponent } from './context/add-update-context-di
 import { AddRuleDeveloperDialogComponent } from './context/add-rule-developer-dialog/add-rule-developer-dialog.component';
 import { AddUpdateRuleDialogComponent } from './context/add-update-rule-dialog/add-update-rule-dialog.component';
 import { AddParameterValueDialogComponent } from './parameter/add-parameter-value-dialog/add-parameter-value-dialog.component';
+import { AddParameterDialogComponent } from './parameter/add-parameter-dialog/add-parameter-dialog.component';
 
 
 @NgModule({
@@ -79,7 +81,8 @@ import { AddParameterValueDialogComponent } from './parameter/add-parameter-valu
         ParameterDetailComponent,
         AddRuleDeveloperDialogComponent,
         AddUpdateRuleDialogComponent,
-        AddParameterValueDialogComponent
+        AddParameterValueDialogComponent,
+        AddParameterDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -89,7 +92,7 @@ import { AddParameterValueDialogComponent } from './parameter/add-parameter-valu
         AppRoutingModule,
         NgbModule.forRoot(),
         AngularFontAwesomeModule,
-        ToastrModule,
+        ToastrModule.forRoot(),
         HttpModule,
         HttpClientModule,
         DataTableModule,
@@ -111,7 +114,9 @@ import { AddParameterValueDialogComponent } from './parameter/add-parameter-valu
         UserService,
         UserService,
         ContextService,
-        QueryService
+        QueryService,
+        NotificationService,
+        ToastrService
     ],
     bootstrap: [AppComponent]
 })

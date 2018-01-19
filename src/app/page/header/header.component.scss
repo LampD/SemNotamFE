@@ -1,24 +1,43 @@
-.place {
-    position: fixed;
-    top: 0px;
-    left: 250px;
+@import '../../../styles/variables';
+
+.navbar-color {
+  background-color: $color-secondary;
 }
 
-.height {
-    height: 60px;
+.navbar-index {
+  z-index: 10;
 }
 
-.side-border {
-    border-left: white solid 2px;
-    border-right: white solid 2px;
-}
+a {
+  color: $color-primary;
 
-.font-style {
-    font-size: 25px;
+  &:hover {
     color: white;
+  }
 }
 
-.text {
-    margin-top: 11px;
-    margin-bottom: 0px;
+.logout-button {
+  border-color: $color-primary;
+  color: $color-primary;
+
+  &:hover {
+    border-color: $color-primary;
+    background-color: $color-primary;
+    color: $color-secondary;
+  }
+}
+
+.btn-history-dd {
+  color: $color-primary;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.navbar{
+  background-color: white;
+  padding-left: 10px;
+  padding-top: 0px;
 }
