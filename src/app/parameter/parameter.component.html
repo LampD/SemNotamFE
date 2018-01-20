@@ -22,7 +22,7 @@
               </p-column>
           </p-dataTable>
 
-          <button type="button" class="btn btn-primary margin-top-16" (click)="newParameter()">Create Parameter</button>
+          <button type="button" class="btn btn-primary margin-top-16" (click)="newParameter()" [disabled]="!(allowedOperations && allowedOperations.AddParameter)">Create Parameter</button>
 
           <add-parameter-dialog [(display)]="displayAddParameter" (callback)="addParameterCallback($event)" ></add-parameter-dialog>
 

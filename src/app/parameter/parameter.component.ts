@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {LoadingIndicatorService} from '../common';
 import {ParameterService} from './parameter.service';
 import {NotificationService} from '../common/notificationService';
+import { AllowedOpertions } from '../transaction/transaction';
+import { TransactionService } from '../transaction/transaction.service';
 
 @Component({
   selector: 'app-parameter',
@@ -16,18 +18,21 @@ export class ParameterComponent implements OnInit {
   public displayAddParameter: boolean;
   public parameter: Parameter;
   public loading: boolean;
+  public allowedOperations: AllowedOpertions;
 
   constructor(
     private loadingIndicatorService: LoadingIndicatorService,
     private parameterService: ParameterService,
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private transactionService: TransactionService,
   ) { }
 
   public async ngOnInit() {
       this.loading  = true;
       this.parameters = await this.parameterService.getParameter();
       this.loading = false;
+      this.allowedOperations = await this.transactionService.getAllowedOperations();
   }
 
   public showDetails(parameter: Parameter){

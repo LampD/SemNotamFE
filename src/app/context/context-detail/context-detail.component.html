@@ -24,33 +24,33 @@
             <p-column field="body" header="Body"></p-column>
             <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
                 <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="decontextualiseRule(rule)">
+                    <div class="w-100 h-100 link" (click)="(allowedOperations && allowedOperations.DecontextualizeRule) ? decontextualiseRule(rule) : null">
                             <i class="fa fa-arrow-up text-primary" aria-hidden="true"></i>
                     </div>
                 </ng-template>
             </p-column>
             <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
                 <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="contextualiseRule(rule)">
+                    <div class="w-100 h-100 link" (click)="(allowedOperations && allowedOperations.ContextualizeRule) ? contextualiseRule(rule) : null">
                         <i class="fa fa-arrow-down text-primary" aria-hidden="true"></i>
                     </div>
                 </ng-template>
             </p-column>
             <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
                 <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="editRule(rule)">
+                    <div class="w-100 h-100 link" (click)="(allowedOperations && allowedOperations.EditRule) ? editRule(rule) : null">
                         <i class="fa fa-pencil-square text-primary" aria-hidden="true"></i>
                     </div>
                 </ng-template>
             </p-column>
             <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
                 <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="header">
-                    <div class="w-100 h-100 link" (click)="addRule()">
+                    <div class="w-100 h-100 link" (click)="(allowedOperations && allowedOperations.AddRule) ? addRule() : null">
                         <i class="fa fa-plus text-success" aria-hidden="true"></i>
                     </div>
                 </ng-template>
                 <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="body">
-                    <div class="w-100 h-100 link" (click)="removeRule(rule)">
+                    <div class="w-100 h-100 link" (click)="(allowedOperations && allowedOperations.DeleteRule) ? removeRule(rule) : null">
                         <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                     </div>
                 </ng-template>
@@ -60,16 +60,16 @@
     
     <div class="row">
         <div class="col-auto ">
-            <button type="button" class="btn btn-primary margin-top-16" (click)="mergeContext()">Merge Context</button>
+            <button type="button" class="btn btn-primary margin-top-16" (click)="mergeContext()" [disabled]="!(allowedOperations && allowedOperations.MergeContext)">Merge Context</button>
         </div>    
         <div class="col-auto">
-            <button type="button" class="btn btn-primary margin-top-16" (click)="splitContext()">Split Context</button>
+            <button type="button" class="btn btn-primary margin-top-16" (click)="splitContext()" [disabled]="!(allowedOperations && allowedOperations.SplitContext)">Split Context</button>
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-primary margin-top-16" (click)="deleteContext()">Delete Context</button>
+            <button type="button" class="btn btn-primary margin-top-16" (click)="deleteContext()" [disabled]="!(allowedOperations && allowedOperations.DeleteContext)">Delete Context</button>
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-primary margin-top-16" (click)="updateParamValues()">Update Param-Values</button>
+            <button type="button" class="btn btn-primary margin-top-16" (click)="updateParamValues()" [disabled]="!(allowedOperations && allowedOperations.UpdateContext)">Update Param-Values</button>
         </div>
     </div>  
 </div>

@@ -31,8 +31,6 @@ export class HttpService {
         options.headers = headers;
       }
     }
-
-    console.log(user.id);
     return options;
   }
 

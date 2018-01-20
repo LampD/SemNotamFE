@@ -14,11 +14,11 @@ export class ContextService {
     ) { }
 
     public getContextHierachy(): Promise<Context> {
-        return this.httpService.get<Context>(this.settingsService.serverPath + 'contexts');
+        return this.httpService.get<Context>(this.settingsService.serverPath + 'contexts/hierarchy');
     }
 
     public getContextNames(): Promise<Array<string>> {
-        return this.httpService.get<Array<string>>(this.settingsService.serverPath + 'contexts/strings');
+        return this.httpService.get<Array<string>>(this.settingsService.serverPath + 'contexts');
     }
 
     public getParameterNames(): Promise<Array<Parameter>> {

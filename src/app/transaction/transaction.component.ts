@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ComposedOperation, Operation, AllowedOpertions } from './transaction';
+import { Router } from '@angular/router';
+import { TransactionService } from './transaction.service';
+import { TreeNode } from 'primeng/primeng';
 
 @Component({
   selector: 'app-transaction',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionComponent implements OnInit {
 
-  constructor() { }
+  public composedOperationRoot: ComposedOperation;
+  public composedOperationHierarchy: [TreeNode];
+  public allowedOperations: AllowedOpertions;
 
-  ngOnInit() {
+  constructor( 
+    private router: Router,
+    private transactionService: TransactionService,
+  ) {}
+
+  public async ngOnInit() {
+    this.allowedOperations = await this.transactionService.getAllowedOperations();
+    this.composedOperationRoot = await this.transactionService.getComposedOperationHierarchy();
+    this.composedOperationHierarchy = [this.toTreeNode(this.composedOperationRoot)];
   }
 
+  private toTreeNode(o :Operation) :TreeNode {
+    var co = <ComposedOperation> o;
+    return {
+        data: {label:`${new Date(o.executedAt).toLocaleString()} ${o.executedBy.name} --> ${o.verb} - ${o.affectedElementType} ${o.affectedElement} `},
+        children: co.operations && co.operations.map(c => this.toTreeNode(c)),
+        expanded: true
+    };  
+  }
+
+  public rollbackTransaction() {
+
+  }
+
+  public commitTransaction() {
+
+  }
 }

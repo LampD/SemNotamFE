@@ -16,6 +16,6 @@ export class UserService {
     }
 
     public getAllRuleDevelopers(): Promise<Array<User>> {
-        return this.http.get<Array<User>>(this.settingsService.serverPath + 'users');
+        return this.http.get<Array<User>>(this.settingsService.serverPath + 'users/ruleDevelopers');
     }
 }
