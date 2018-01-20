@@ -2,7 +2,7 @@
   <div class="form-group">
     <label>detParamValue</label>
     <textarea type="text" rows="4"  [(ngModel)]="detParamValue" class="form-control" ></textarea>
-    <button type="button" class="btn btn-primary margin-top-16" (click)="updateDetParamValue()">Update detParamValue</button>
+    <button type="button" class="btn btn-primary margin-top-16" (click)="updateDetParamValue()" [disabled]="!(allowedOperations && allowedOperations.UpdateParameter)">Update detParamValue</button>
   </div>
 
     <div class="margin-top-32">
@@ -23,7 +23,7 @@
                 </ng-template>
             </p-column>
         </p-treeTable>
-        <button type="button" class="btn btn-primary margin-top-16">Delete Parameter</button>
+        <button type="button" class="btn btn-primary margin-top-16" [disabled]="!(allowedOperations && allowedOperations.DeleteParameter)">Delete Parameter</button>
     </div>
 </div>
 

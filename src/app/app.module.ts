@@ -61,6 +61,7 @@ import { AddUpdateRuleDialogComponent } from './context/add-update-rule-dialog/a
 import { AddParameterValueDialogComponent } from './parameter/add-parameter-value-dialog/add-parameter-value-dialog.component';
 import { AddParameterDialogComponent } from './parameter/add-parameter-dialog/add-parameter-dialog.component';
 import { DeContextualizeDialogComponent } from './context/de-contextualize-dialog/de-contextualize-dialog.component';
+import { TransactionService } from './transaction/transaction.service';
 
 
 
@@ -84,8 +85,8 @@ import { DeContextualizeDialogComponent } from './context/de-contextualize-dialo
         AddRuleDeveloperDialogComponent,
         AddUpdateRuleDialogComponent,
         AddParameterValueDialogComponent,
-        AddParameterDialogComponent
-        DeContextualizeDialogComponent
+        AddParameterDialogComponent,
+        DeContextualizeDialogComponent,
     ],
     imports: [
         BrowserModule,
@@ -103,7 +104,7 @@ import { DeContextualizeDialogComponent } from './context/de-contextualize-dialo
         DropdownModule,
         TreeTableModule,
         FieldsetModule,
-        DialogModule
+        DialogModule,
     ],
     providers: [
         SettingsService,
@@ -119,7 +120,8 @@ import { DeContextualizeDialogComponent } from './context/de-contextualize-dialo
         ContextService,
         QueryService,
         NotificationService,
-        ToastrService
+        ToastrService,
+        TransactionService,
     ],
     bootstrap: [AppComponent]
 })

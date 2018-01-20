@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {LoadingIndicatorService} from '../../common';
 import {Parameter, ParameterValue} from '../parameter';
 import {TreeNode} from 'primeng/primeng';
+import { TransactionService } from '../../transaction/transaction.service';
+import { AllowedOpertions } from '../../transaction/transaction';
 
 @Component({
     selector: 'parameter-detail',
@@ -17,6 +19,7 @@ export class ParameterDetailComponent implements OnInit {
   public parameter: Parameter;
   public detParamValue: String;
   public showAddParameterValueDialog: boolean;
+  public allowedOperations: AllowedOpertions;
 
   private selectedParameterValue: String;
 
@@ -24,7 +27,8 @@ export class ParameterDetailComponent implements OnInit {
     private loadingIndicatorService: LoadingIndicatorService,
     private activatedRoute: ActivatedRoute,
     private parameterService: ParameterService,
-    private router: Router
+    private router: Router,
+    private transactionService: TransactionService,
   ) { }
 
   async ngOnInit() {
@@ -36,7 +40,7 @@ export class ParameterDetailComponent implements OnInit {
     this.parameter = await this.parameterService.loadParameter(this.parameterId);
     this.parameterValues = [this.toTreeNode(this.parameter.parameterValueHierarchy)];
     this.detParamValue = this.parameter.detParamValue.join('\n');
-    console.log(this.parameterValues);
+    this.allowedOperations = await this.transactionService.getAllowedOperations();
   }
 
   private toTreeNode(parameterValue :ParameterValue) :TreeNode {

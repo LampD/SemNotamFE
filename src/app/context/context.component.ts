@@ -5,6 +5,8 @@ import { TreeNode } from 'primeng/components/common/treenode';
 import { ContextService } from './context.service';
 import { Context } from './context';
 import { Parameter } from '../parameter/parameter';
+import { TransactionService } from '../transaction/transaction.service';
+import { AllowedOpertions } from '../transaction/transaction';
 
 @Component({
   selector: 'app-context',
@@ -17,19 +19,23 @@ export class ContextComponent implements OnInit {
     public columns: Array<Parameter>;
     public contexts: Array<TreeNode>;
     public showCreateContextDialog: boolean;
+    public allowedOperations: AllowedOpertions;
 
     constructor(
         private contextService: ContextService,
-        private router: Router
+        private router: Router,
+        private transactionService: TransactionService,
     ) { }
 
     public async ngOnInit() {
-        const result = await Promise.all([
+        var result = await Promise.all([
             this.contextService.getParameterNames(), 
-            this.contextService.getContextHierachy()
+            this.contextService.getContextHierachy(),
+            this.transactionService.getAllowedOperations(),
         ]);
         this.columns = result[0];
         var rootContext = result[1];
+        this.allowedOperations = result[2];
 
         // this.columns = await this.contextService.getParameterNames();
         // var rootContext = await this.contextService.getContextHierachy();

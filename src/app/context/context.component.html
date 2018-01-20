@@ -9,7 +9,7 @@
             </ng-template>
         </p-column>
     </p-treeTable>
-    <button type="button" class="btn btn-primary margin-top-16" (click)="openContextDialog()">Create Context</button>
+    <button type="button" class="btn btn-primary margin-top-16" (click)="openContextDialog()" [disabled]="!allowedOperations.AddContext">Create Context</button>
 </div>
 
 <add-update-context-dialog [(display)]="showCreateContextDialog" (callback)="addContextCallback($event)"></add-update-context-dialog>

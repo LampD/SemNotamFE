@@ -4,6 +4,8 @@ import { ContextDetailModel, BusinessRule, Context } from '../context';
 import { ContextService } from '../context.service';
 import { User } from '../../user/index';
 import { Router } from '@angular/router';
+import { TransactionService } from '../../transaction/transaction.service';
+import { AllowedOpertions } from '../../transaction/transaction';
 
 @Component({
     selector: 'context-detail',
@@ -20,11 +22,13 @@ export class ContextDetailComponent implements OnInit {
     public showDeContextualizeDialog: boolean;
     public rule: BusinessRule;
     public isContextualize: boolean;
+    public allowedOperations: AllowedOpertions;
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private contextService: ContextService,
         private router: Router,
+        private transactionService: TransactionService,
     ) { }
 
     public async ngOnInit() {
@@ -35,6 +39,7 @@ export class ContextDetailComponent implements OnInit {
         });
 
         this.contextDetailModel = await this.contextService.getContextDetailModel(this.contextId);
+        this.allowedOperations = await this.transactionService.getAllowedOperations();
     }
 
     public addRuleDeveloper(): void {
@@ -61,12 +66,12 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public editRule(rule: BusinessRule): void {
-        this.rule = rule;        
+        this.rule = rule;
         this.showAddUpdateRuleDialog = true;
     }
 
     public addRule(rule: BusinessRule): void {
-        this.rule = undefined;        
+        this.rule = <BusinessRule>{};
         this.showAddUpdateRuleDialog = true;
     }
 

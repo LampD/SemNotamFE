@@ -2,13 +2,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../user/user';
 import { UserService } from '../../user/index';
 import { ContextDetailModel } from '../context';
+import { SimpleChanges, OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'add-rule-developer-dialog',
     templateUrl: './add-rule-developer-dialog.component.html',
     styleUrls: ['./add-rule-developer-dialog.component.scss']
 })
-export class AddRuleDeveloperDialogComponent implements OnInit {
+export class AddRuleDeveloperDialogComponent implements OnInit, OnChanges {
 
     @Input() public context: ContextDetailModel;
     @Input() public display: boolean;
@@ -23,9 +24,15 @@ export class AddRuleDeveloperDialogComponent implements OnInit {
     ) { }
 
     public async ngOnInit() {
-        var allRuleDevelopers = await this.userService.getAllRuleDevelopers();
-        this.ruleDevelopers = allRuleDevelopers.filter(rd => !this.context.ruleDevelopers.find(crd=>crd.id === rd.id));
-        this.ruleDeveloper = this.ruleDevelopers[0];
+
+    }
+
+    public async ngOnChanges(changes: SimpleChanges) {
+        if(changes.display && changes.display.currentValue === true) {
+            var allRuleDevelopers = await this.userService.getAllRuleDevelopers();
+            this.ruleDevelopers = allRuleDevelopers.filter(rd => !this.context.ruleDevelopers.find(crd=>crd.id === rd.id));
+            this.ruleDeveloper = this.ruleDevelopers[0];
+        }
     }
 
     public ngOnDestroy(): void {
