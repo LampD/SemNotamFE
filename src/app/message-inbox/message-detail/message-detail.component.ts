@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Message } from '../message';
 import { MessageService } from '../message.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'message-detail',
@@ -16,7 +17,8 @@ export class MessageDetailComponent implements OnInit {
 
     constructor(
         private messageService: MessageService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private router: Router,
     ) { }
 
     public async ngOnInit() {
@@ -27,5 +29,11 @@ export class MessageDetailComponent implements OnInit {
         });
 
         this.message = await this.messageService.loadMessage(this.messageId);
+    }
+
+    public async acknowledgeMessage() {
+        this.message.acknowledged = true;
+        await this.messageService.updateMessage(this.message);
+        this.router.navigate(['messages']);
     }
 }

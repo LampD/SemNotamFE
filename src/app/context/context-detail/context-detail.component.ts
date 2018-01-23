@@ -48,7 +48,9 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public async removeRuleDeveloper(ruleDeveloper: User) {
-        this.contextDetailModel = await this.contextService.removeRuleDeveloper(this.contextId, ruleDeveloper.id);
+        if (this.contextDetailModel.ruleDevelopers.length > 1) {
+            this.contextDetailModel = await this.contextService.removeRuleDeveloper(this.contextId, ruleDeveloper.id);
+        }
     }
 
     public decontextualiseRule(rule: BusinessRule): void {

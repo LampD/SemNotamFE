@@ -18,4 +18,14 @@ export class TransactionService {
     public getAllowedOperations(): Promise<AllowedOpertions> {
         return this.http.get<AllowedOpertions>(this.settingsService.serverPath + 'operations/allowed');
     }
+
+    
+    public rollbackTransaction(): Promise<ComposedOperation> {
+        return this.http.post<ComposedOperation>(this.settingsService.serverPath + 'operations/rollback', null);
+    }
+
+    public commitTransaction(): Promise<ComposedOperation> {
+        return this.http.post<ComposedOperation>(this.settingsService.serverPath + 'operations/commit', null);
+    }
+
 }
