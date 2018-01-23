@@ -23,7 +23,7 @@ export class TransactionComponent implements OnInit {
   public async ngOnInit() {
     this.allowedOperations = await this.transactionService.getAllowedOperations();
     this.composedOperationRoot = await this.transactionService.getComposedOperationHierarchy();
-    this.composedOperationHierarchy = [this.toTreeNode(this.composedOperationRoot)];
+    this.composedOperationHierarchy = this.composedOperationRoot.id && [this.toTreeNode(this.composedOperationRoot)];
   }
 
   private toTreeNode(o :Operation) :TreeNode {
@@ -35,11 +35,16 @@ export class TransactionComponent implements OnInit {
     };  
   }
 
-  public rollbackTransaction() {
+  public async rollbackTransaction() {
+    this.composedOperationRoot = await this.transactionService.rollbackTransaction();
+    this.composedOperationHierarchy = this.composedOperationRoot.id && [this.toTreeNode(this.composedOperationRoot)];
+    this.allowedOperations = await this.transactionService.getAllowedOperations();
 
   }
 
-  public commitTransaction() {
-
+  public async commitTransaction() {
+    this.composedOperationRoot = await this.transactionService.commitTransaction();
+    this.composedOperationHierarchy = this.composedOperationRoot.id && [this.toTreeNode(this.composedOperationRoot)];
+    this.allowedOperations = await this.transactionService.getAllowedOperations();
   }
 }

@@ -21,4 +21,8 @@ export class MessageService {
     public sendMessage(message: Message): Promise<Message> {
         return this.http.post<Message>(this.settingsService.serverPath + 'messages', message);
     }
+
+    public updateMessage(message: Message): Promise<Message> {
+        return this.http.put<Message>(this.settingsService.serverPath + 'messages/' + message.id, message);
+    }
 }

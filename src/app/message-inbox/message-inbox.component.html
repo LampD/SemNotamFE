@@ -2,9 +2,9 @@
     <p-dataTable [value]="messages" selectionMode="single" (onRowClick)="navigateToDetail($event)">
         <p-column field="status" header="Status" [style]="{'width':'5%', 'text-align':'center'}">
             <ng-template let-col let-message="rowData" let-ri="rowIndex" pTemplate="body">
-                <i class="fa fa-envelope text-primary" aria-hidden="true" *ngIf="message.status === 'unread'"></i>
-                <i class="fa fa-envelope-open text-primary" aria-hidden="true" *ngIf="message.status === 'read'"></i>
-                <i class="fa fa-check text-success" aria-hidden="true" *ngIf="message.status === 'acknoledged'"></i>
+                <i class="fa fa-envelope text-primary" aria-hidden="true" *ngIf="!message.read && !message.acknowledged"></i>
+                <i class="fa fa-envelope-open text-primary" aria-hidden="true" *ngIf="message.read && !message.acknowledged"></i>
+                <i class="fa fa-check text-success" aria-hidden="true" *ngIf="message.acknowledged"></i>
             </ng-template>
         </p-column>
         <p-column field="time" header="Time" [style]="{'width':'10%', 'text-align':'center'}">
@@ -14,7 +14,7 @@
         </p-column>
         <p-column field="sender.name" header="Sender" [style]="{'width':'20%'}"></p-column>
         <p-column field="title" header="Title" [style]="{'width':'25%'}"></p-column>
-        <p-column field="element" header="Element"></p-column>
+        <p-column field="affectedElement" header="Element"></p-column>
     </p-dataTable>
 
     <button type="button" class="btn btn-primary margin-top-16" (click)="newMessage()">Write Message</button>

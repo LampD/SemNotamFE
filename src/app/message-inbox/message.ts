@@ -5,8 +5,9 @@ export interface Message {
     time: Date;
     sender: User;
     title: string;
-    element: string;
-    status: string;
+    affectedElement: string;
+    read: boolean;
+    acknowledged: boolean;
     type: string;
     content: string;
     recipients: Array<User>
