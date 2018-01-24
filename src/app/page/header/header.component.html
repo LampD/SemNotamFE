@@ -1,6 +1,12 @@
-<div class="place" [style.width.px]="width">
-    <div class="row bg-primary height">
-        <div class="col-md-6 font-style">
+<div class="place" [style.width.px]="width" *ngIf="userName">
+    <div class="row bg-primary height text-center headers" >
+        <div class="col-md-4 font-style">
+            <p class="text-center text">{{ getCurrentAction }}</p>
+        </div>
+        <div class="col-md-4 font-style">
+            <p class="text-center text">{{ transactionState }}</p>
+        </div>
+        <div class="col-md-4 font-style">
             <p class="text-center text">{{ userName }}</p>
         </div>
     </div>

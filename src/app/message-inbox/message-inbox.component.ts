@@ -3,6 +3,9 @@ import { Message } from './message';
 import { LoadingIndicatorService } from '../common/index';
 import { MessageService } from './message.service';
 import { Router } from '@angular/router';
+import { Header } from 'primeng/primeng';
+import { HeaderComponent } from '../page/index';
+import { inject } from '@angular/core/testing';
 
 @Component({
   selector: 'message-inbox',

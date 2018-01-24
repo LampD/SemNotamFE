@@ -122,6 +122,7 @@ import { TransactionService } from './transaction/transaction.service';
         NotificationService,
         ToastrService,
         TransactionService,
+        HeaderComponent
     ],
     bootstrap: [AppComponent]
 })
