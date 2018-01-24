@@ -16,7 +16,8 @@ import {
     TreeTableModule,
     TreeNode,
     FieldsetModule,
-    DialogModule
+    DialogModule,
+    ScrollPanelModule,
 } from 'primeng/primeng';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -105,6 +106,7 @@ import { TransactionService } from './transaction/transaction.service';
         TreeTableModule,
         FieldsetModule,
         DialogModule,
+        ScrollPanelModule,
     ],
     providers: [
         SettingsService,

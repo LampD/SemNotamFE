@@ -7,7 +7,7 @@ export interface ComposedOperation extends Operation {
 export interface Operation {
   id: number;
   executedAt: Date;
-  isExecuted: boolean;
+  executed: boolean;
   text: string;
   executedBy: User;
   userId: number;

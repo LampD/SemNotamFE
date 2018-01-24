@@ -36,4 +36,13 @@ export class MessageDetailComponent implements OnInit {
         await this.messageService.updateMessage(this.message);
         this.router.navigate(['messages']);
     }
+
+    
+    public navigateToAffectedElement(message :Message): void {
+        if (message.affectedElementType === "Context") {
+            this.router.navigate(['contextDetail'], { queryParams: { id: message.affectedElement } });
+        } else if (message.affectedElementType === "Parameter") {
+            // TODO
+        }
+    }
 }

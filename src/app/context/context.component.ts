@@ -66,7 +66,9 @@ export class ContextComponent implements OnInit {
     }
 
     public async addContextCallback(context :Context) {
-        var rootContext = await this.contextService.addContext(context);
+        await this.contextService.addContext(context);
+        var rootContext = await this.contextService.getContextHierachy();
         this.contexts = [this.toTreeNode(rootContext)];
+        this.allowedOperations = await this.transactionService.getAllowedOperations();
     }
 }

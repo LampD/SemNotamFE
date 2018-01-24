@@ -29,7 +29,7 @@ export class TransactionComponent implements OnInit {
   private toTreeNode(o :Operation) :TreeNode {
     var co = <ComposedOperation> o;
     return {
-        data: {label:`${new Date(o.executedAt).toLocaleString()} ${o.executedBy.name} --> ${o.verb} - ${o.affectedElementType} ${o.affectedElement} `},
+        data: {label:`${o.executed ? '✓':'✗'} ${new Date(o.executedAt).toLocaleString()} ${o.executedBy.name} --> ${o.verb} - ${o.affectedElementType} ${o.affectedElement} `},
         children: co.operations && co.operations.map(c => this.toTreeNode(c)),
         expanded: true
     };  
