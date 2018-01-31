@@ -10,6 +10,7 @@ export class AddUpdateRuleDialogComponent implements OnInit {
 
     @Input() public contextId: number;
     @Input() public display: boolean;
+    @Input() public isAdd: boolean;
     @Output() public displayChange: EventEmitter<any> = new EventEmitter();
     @Input() public rule: BusinessRule;
     @Output() public callback: EventEmitter<any> = new EventEmitter();

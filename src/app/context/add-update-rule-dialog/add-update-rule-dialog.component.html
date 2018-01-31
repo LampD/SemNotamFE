@@ -1,6 +1,6 @@
-<p-dialog [(visible)]="display" [closable]="false" [width]="600">
+<p-dialog [(visible)]="display" [closable]="false" [width]="600" [positionLeft]="400">
         <p-header>
-            Add/Update Rule
+                {{ isAdd ? "Add new Rule" : "Update Rule"}}
         </p-header>
         <div class="form-group">
             <label for="id">id</label>

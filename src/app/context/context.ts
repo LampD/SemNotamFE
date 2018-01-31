@@ -6,7 +6,7 @@ export interface Context {
     parameterValues: Map<String, String> ;
 }
 
-export interface ContextDetailModel {
+export interface ContextDetailModel extends Context {
     name: string;
     ruleDevelopers: Array<User>;
     rules: Array<BusinessRule>;

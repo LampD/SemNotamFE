@@ -15,7 +15,7 @@
               </p-column>
             <p-column header="Delete" [style]="{'width':'10%'}">
               <ng-template let-parameter="rowData" let-i="rowIndex" pTemplate="body">
-                  <div class="w-100 text-center link" (click)="deleteParameter(parameter)">
+                  <div class="w-100 text-center link" (click)="(allowedOperations && allowedOperations.DeleteParameter) ? deleteParameter(parameter) : null">
                   <a><i class="fa fa-trash text-primary" aria-hidden="true"></i></a>
                   </div>
               </ng-template>

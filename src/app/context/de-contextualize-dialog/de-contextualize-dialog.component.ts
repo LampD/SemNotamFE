@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ContextService } from '../context.service';
+import { OnChanges, SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 export interface DropDownItem {
-    label: string;
+    name: string;
 }
 
 @Component({
@@ -14,9 +15,11 @@ export class DeContextualizeDialogComponent implements OnInit {
 
     @Input() public display: boolean;
     @Input() public isContextualize: boolean;
+    @Input() public isDecontextualize: boolean;
+    @Input() public isMerge: boolean;
     @Output() public callback = new EventEmitter<string>();
     public contextStrings: Array<string>;
-    public selectedContextString: string;
+    public selectedContextString: DropDownItem;
     public dropDownItems: Array<DropDownItem> = [];
 
     constructor(
@@ -25,12 +28,8 @@ export class DeContextualizeDialogComponent implements OnInit {
 
     public async ngOnInit() {
         this.contextStrings = await this.contextService.getContextNames();
-
-        this.contextStrings.forEach(cs => {
-            this.dropDownItems.push({
-                label: cs
-            });
-        });
+        this.dropDownItems = this.contextStrings.map(cs => <DropDownItem>{name:cs});
+        this.selectedContextString = this.dropDownItems[0];
     }
 
     public ngOnDestroy(): void {
@@ -38,18 +37,18 @@ export class DeContextualizeDialogComponent implements OnInit {
     }
 
     public async save() {
-        this.onClose(this.selectedContextString);
+        this.onClose();
     }
 
     public cancel(): void {
         this.onClose();
     }
 
-    private onClose(contextString?: string): void {
+    private onClose(): void {
         this.display = false;
         
-        if(contextString) {
-            this.callback.emit(this.selectedContextString);
+        if(this.selectedContextString) {
+            this.callback.emit(this.selectedContextString.name);
         } else {
             this.callback.emit(null);
         }

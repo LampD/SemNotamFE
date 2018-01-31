@@ -22,7 +22,10 @@ export class ContextDetailComponent implements OnInit {
     public showDeContextualizeDialog: boolean;
     public rule: BusinessRule;
     public isContextualize: boolean;
+    public isDecontextualize: boolean;
+    public isMerge: boolean;
     public allowedOperations: AllowedOpertions;
+    public isRuleAdd: boolean;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -54,26 +57,44 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public decontextualiseRule(rule: BusinessRule): void {
+        this.rule = rule;
+        this.isMerge = false;
         this.isContextualize = false;
+        this.isDecontextualize = true;
         this.showDeContextualizeDialog = true;
     }
 
     public contextualiseRule(rule: BusinessRule): void {
+        this.rule = rule;
+        this.isMerge = false;
         this.isContextualize = true;
+        this.isDecontextualize = false;
         this.showDeContextualizeDialog = true;
     }
 
-    public deContextualizeCallback(contextString: string) {
+    public async deContextualizeCallback(contextString: string) {
         this.showDeContextualizeDialog = false;
+        if (contextString) {
+            if (this.isContextualize) {
+                await this.contextService.contextualizeRule(this.contextId, this.rule, contextString);
+            } else if (this.isDecontextualize) {
+                await this.contextService.decontextualizeRule(this.contextId, this.rule, contextString);
+            } else if (this.isMerge) {
+                await this.contextService.mergeContext(this.contextId, contextString);
+            }
+        }
+        this.rule = <BusinessRule>{};
     }
 
     public editRule(rule: BusinessRule): void {
         this.rule = rule;
+        this.isRuleAdd = false;
         this.showAddUpdateRuleDialog = true;
     }
 
     public addRule(rule: BusinessRule): void {
         this.rule = <BusinessRule>{};
+        this.isRuleAdd = true;
         this.showAddUpdateRuleDialog = true;
     }
 
@@ -82,11 +103,15 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public mergeContext(): void {
-
+        this.isMerge = true;
+        this.isContextualize = false;
+        this.isDecontextualize = false;
+        this.showDeContextualizeDialog = true;
     }
 
-    public splitContext(): void {
-
+    public async splitContext() {
+        await this.contextService.splitContext(this.contextId);
+        this.router.navigate(['contexts']);
     }
 
     public async deleteContext() {
@@ -103,12 +128,15 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public async addUpdateRuleCallback(rule :BusinessRule) {
-        this.contextDetailModel = await this.contextService.addUpdateRule(this.contextId, rule);
+        if (this.isRuleAdd) {
+            this.contextDetailModel = await this.contextService.addRule(this.contextId, rule);
+        } else {
+            this.contextDetailModel = await this.contextService.updateRule(this.contextId, rule);
+        }
     }
 
     public async updateParamValuesCallback(context :Context) {
         //this.contextDetailModel = await this.contextService.updateParamValues(context);
     }
-
 
 }

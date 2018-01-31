@@ -45,7 +45,11 @@ export class ContextService {
         return this.httpService.post<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/ruleDeveloper', user);
     }
 
-    public addUpdateRule(contextId :String, rule :BusinessRule): Promise<ContextDetailModel> {
+    public addRule(contextId :String, rule :BusinessRule): Promise<ContextDetailModel> {
+        return this.httpService.post<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule', rule);
+    }
+
+    public updateRule(contextId :String, rule :BusinessRule): Promise<ContextDetailModel> {
         return this.httpService.put<ContextDetailModel>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule/'+rule.id, rule);
     }
 
@@ -55,5 +59,21 @@ export class ContextService {
 
     public deleteContext(contextId :String): Promise<void> {
         return this.httpService.delete<void>(this.settingsService.serverPath + 'contexts/' + contextId);
+    }
+
+    public mergeContext(contextId :String, toContextId : String): Promise<Context> {
+        return this.httpService.post<Context>(this.settingsService.serverPath + 'contexts/' + contextId + '/merge/' + toContextId, null);
+    }
+
+    public splitContext(contextId :String): Promise<void> {
+        return this.httpService.post<void>(this.settingsService.serverPath + 'contexts/' + contextId  + '/split', null);
+    }
+
+    public contextualizeRule(contextId :String, rule :BusinessRule, toContextId : String): Promise<Context> {
+        return this.httpService.post<Context>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule/' + rule.id + '/contextualize/' + toContextId, rule);
+    }
+
+    public decontextualizeRule(contextId :String, rule :BusinessRule, toContextId : String): Promise<Context> {
+        return this.httpService.post<Context>(this.settingsService.serverPath + 'contexts/' + contextId + '/rule/' + rule.id + '/decontextualize/' + toContextId, rule);
     }
 }

@@ -1,4 +1,4 @@
-<div class="container-fluid content-container" *ngIf="!isLoading">
+<div class="container-fluid content-container" *ngIf="isInitialized">
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="interest">interest</label>
@@ -13,8 +13,18 @@
         <button type="submit" class="btn btn-primary margin-top-8">Query</button>
     </form>
 
-    <p-dataTable [value]="semNotams" selectionMode="single" (onRowClick)="navigateToDetail($event)">
-        <p-column field="notam.name" header="Notam" [style]="{'width':'20%', 'text-align':'center'}"></p-column>
-        <p-column field="results" header="Results" [style]="{'width':'80%'}"></p-column>
-    </p-dataTable>
+    <div class="row margin-top-16">
+        <div class="col-md-12" [style.height.px]="cardHeight">
+            <div class="card h-100">
+                <div class="card-header">SemNotam Result<loading-indicator class="float-right" [(isLoading)]="isLoading"></loading-indicator></div>
+                <div class="card-body center">
+                    <p-dataTable [value]="semNotams" selectionMode="single" (onRowClick)="navigateToDetail($event)">
+                        <p-column field="notam.name" header="Notam" [style]="{'width':'20%', 'text-align':'center'}"></p-column>
+                        <p-column field="results" header="Results" [style]="{'width':'80%'}"></p-column>
+                    </p-dataTable>    
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>

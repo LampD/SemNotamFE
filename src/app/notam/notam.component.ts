@@ -10,6 +10,7 @@ import { Property, SemNotam } from './query';
 export class NotamComponent implements OnInit {
 
     public isLoading: boolean;
+    public isInitialized: boolean;
     public iSpec: Object;
     public semNotams: Array<SemNotam>;
 
@@ -22,6 +23,7 @@ export class NotamComponent implements OnInit {
 
         try {
             this.iSpec = await this.queryService.getISpec();
+            this.isInitialized = true;
             this.semNotams = await this.queryService.getSemNotams();
         } catch(e) {
             // TODO notification
@@ -31,7 +33,9 @@ export class NotamComponent implements OnInit {
     }
 
     public async onSubmit() {
+        this.isLoading = true;
         await this.queryService.updateIspec(this.iSpec);
         this.semNotams = await this.queryService.getSemNotams();
+        this.isLoading = false;
     }
 }

@@ -6,6 +6,7 @@ export interface Message {
     sender: User;
     title: string;
     affectedElement: string;
+    affectedElementType: string;
     read: boolean;
     acknowledged: boolean;
     type: string;
