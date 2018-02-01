@@ -17,6 +17,7 @@ export class DeContextualizeDialogComponent implements OnInit {
     @Input() public isContextualize: boolean;
     @Input() public isDecontextualize: boolean;
     @Input() public isMerge: boolean;
+    @Input() public contextId: String;
     @Output() public callback = new EventEmitter<string>();
     public contextStrings: Array<string>;
     public selectedContextString: DropDownItem;
@@ -27,9 +28,19 @@ export class DeContextualizeDialogComponent implements OnInit {
     ) { }
 
     public async ngOnInit() {
-        this.contextStrings = await this.contextService.getContextNames();
-        this.dropDownItems = this.contextStrings.map(cs => <DropDownItem>{name:cs});
-        this.selectedContextString = this.dropDownItems[0];
+        
+    }
+
+    public async ngOnChanges(changes: SimpleChanges) {
+        if(changes.display) {
+            if (this.isMerge || this.isDecontextualize) {
+                this.contextStrings = await this.contextService.getParentContextNames(this.contextId);
+            } else {
+                this.contextStrings = await this.contextService.getChildContextNames(this.contextId);
+            }
+            this.dropDownItems = this.contextStrings.map(cs => <DropDownItem>{name:cs});
+            this.selectedContextString = this.dropDownItems[0];
+        }
     }
 
     public ngOnDestroy(): void {

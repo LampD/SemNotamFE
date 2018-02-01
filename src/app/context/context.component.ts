@@ -7,6 +7,8 @@ import { Context } from './context';
 import { Parameter } from '../parameter/parameter';
 import { TransactionService } from '../transaction/transaction.service';
 import { AllowedOpertions } from '../transaction/transaction';
+import { LoadingIndicatorService } from '../common/index';
+import {NotificationService} from '../common/notificationService';
 
 @Component({
   selector: 'app-context',
@@ -15,31 +17,34 @@ import { AllowedOpertions } from '../transaction/transaction';
 })
 export class ContextComponent implements OnInit {
 
-    public isLoading: boolean;
-    public columns: Array<Parameter>;
+    public columns: Array<String>;
     public contexts: Array<TreeNode>;
     public showCreateContextDialog: boolean;
     public allowedOperations: AllowedOpertions;
+    public loading: boolean;
 
     constructor(
+        private notificationService: NotificationService,
+        private loadingIndicatorService: LoadingIndicatorService,
         private contextService: ContextService,
         private router: Router,
         private transactionService: TransactionService,
     ) { }
 
     public async ngOnInit() {
+        this.loading  = true;
         var result = await Promise.all([
-            this.contextService.getParameterNames(), 
             this.contextService.getContextHierachy(),
             this.transactionService.getAllowedOperations(),
         ]);
-        this.columns = result[0];
-        var rootContext = result[1];
-        this.allowedOperations = result[2];
+        this.columns = Object.keys(result[0].parameterValues);
+        var rootContext = result[0];
+        this.allowedOperations = result[1];
 
         // this.columns = await this.contextService.getParameterNames();
         // var rootContext = await this.contextService.getContextHierachy();
         this.contexts = [this.toTreeNode(rootContext)];
+        this.loading  = false;
     }
 
     private toTreeNode(context :Context) :TreeNode {
@@ -66,9 +71,16 @@ export class ContextComponent implements OnInit {
     }
 
     public async addContextCallback(context :Context) {
-        await this.contextService.addContext(context);
-        var rootContext = await this.contextService.getContextHierachy();
-        this.contexts = [this.toTreeNode(rootContext)];
-        this.allowedOperations = await this.transactionService.getAllowedOperations();
+        try {
+            this.loading = true;
+            await this.contextService.addContext(context);
+            this.notificationService.success('Add Context', 'Success');
+        } catch (e) {
+            console.log(e.message);
+            this.notificationService.error('Add Context', 'Error <br/>' + e.message);
+        } finally {
+            this.loading = false;
+            this.ngOnInit();
+        }
     }
 }

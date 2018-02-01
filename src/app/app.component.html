@@ -3,7 +3,7 @@
     <app-header></app-header>
     <div class="router-outlet" [style.width.px]="width">
         <div class="center-loader" *ngIf="isLoading">
-            <loading-indicator [isLoading]="isLoading"></loading-indicator>
+            <loading-indicator [isLoading]="isLoading" size="large"></loading-indicator>
         </div>
         <router-outlet *ngIf="!isLoading"></router-outlet>
     </div>

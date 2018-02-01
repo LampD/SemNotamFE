@@ -54,8 +54,12 @@ export class ParameterDetailComponent implements OnInit {
   }
 
   public async deleteParameterValue(treeNode :TreeNode) {
-    this.parameter = await this.parameterService.deleteParameterValue(this.parameterId, treeNode.data.name);
-    this.parameterValues = [this.toTreeNode(this.parameter.parameterValueHierarchy)];
+    if (treeNode !== this.parameterValues[0]) {
+      this.loadingIndicatorService.displayLoader(true);
+      this.parameter = await this.parameterService.deleteParameterValue(this.parameterId, treeNode.data.name);
+      this.parameterValues = [this.toTreeNode(this.parameter.parameterValueHierarchy)];
+      this.loadingIndicatorService.displayLoader(false);
+    }
   }
 
   public async addParameterValue(treeNode :TreeNode) {

@@ -5,12 +5,12 @@
         <p-column field="name" header="Name"></p-column>
         <p-column  header="" [style]="{'width':'5%', 'text-align':'center'}">
             <ng-template let-col let-rule="rowData" let-ri="rowIndex" pTemplate="header">
-                <div class="w-100 h-100 link" (click)="addRuleDeveloper()">
+                <div class="w-100 h-100 link" (click)="(allowedOperations && allowedOperations.AddRuleDeveloper) ? addRuleDeveloper() : null">
                     <i class="fa fa-plus text-success" aria-hidden="true"></i>
                 </div>
             </ng-template>
             <ng-template let-col let-ruleDeveloper="rowData" let-ri="rowIndex" pTemplate="body">
-                <div class="w-100 h-100 link" (click)="removeRuleDeveloper(ruleDeveloper)">
+                <div class="w-100 h-100 link" (click)="(allowedOperations && allowedOperations.DeleteRuleDeveloper) ? removeRuleDeveloper(ruleDeveloper) : null">
                     <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                 </div>
             </ng-template>
@@ -83,4 +83,4 @@
 </div>
 
 <add-update-rule-dialog [contextId]="contextId" [(display)]="showAddUpdateRuleDialog" [isAdd]="isRuleAdd" [rule]="rule" (callback)="addUpdateRuleCallback($event)"></add-update-rule-dialog>
-<de-contextualize-dialog [(display)]="showDeContextualizeDialog" [isContextualize]="isContextualize" [isDecontextualize]="isDecontextualize" [isMerge]="isMerge" (callback)="deContextualizeCallback($event)"></de-contextualize-dialog>
+<de-contextualize-dialog [(display)]="showDeContextualizeDialog" [isContextualize]="isContextualize" [isDecontextualize]="isDecontextualize" [isMerge]="isMerge" [contextId]="contextId" (callback)="deContextualizeCallback($event)"></de-contextualize-dialog>

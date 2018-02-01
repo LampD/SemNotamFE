@@ -21,6 +21,14 @@ export class ContextService {
         return this.httpService.get<Array<string>>(this.settingsService.serverPath + 'contexts');
     }
 
+    public getParentContextNames(contextId : String): Promise<Array<string>> {
+        return this.httpService.get<Array<string>>(this.settingsService.serverPath + 'contexts/' + contextId + '/parents');
+    }
+
+    public getChildContextNames(contextId : String): Promise<Array<string>> {
+        return this.httpService.get<Array<string>>(this.settingsService.serverPath + 'contexts/' + contextId + '/children');
+    }
+
     public getParameterNames(): Promise<Array<Parameter>> {
         return this.httpService.get<Array<Parameter>>(this.settingsService.serverPath + 'parameters');
     }

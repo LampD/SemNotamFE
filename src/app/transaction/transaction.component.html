@@ -1,7 +1,14 @@
 <div class="container-fluid content-container">
   <p-scrollPanel [style]="{width: '100%', height: '100%'}">
     <p-treeTable [value]="composedOperationHierarchy" item-width="500px">
-        <p-column field="label" header=""></p-column>
+        <p-column field="label" header="" >
+            <ng-template let-col let-operation="rowData.data" let-ri="rowIndex" pTemplate="body">
+                <i class="fa fa-square text-primary" aria-hidden="true" *ngIf="!operation.data.executed && !operation.data.fatalError"></i>
+                <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true" *ngIf="operation.data.fatalError"></i>
+                <i class="fa fa-check text-success" aria-hidden="true" *ngIf="operation.data.executed && !operation.data.fatalError"></i>
+                <span>{{ operation.label }}</span>
+            </ng-template>
+        </p-column>
     </p-treeTable>
     
     <button type="button" class="btn btn-primary margin-top-16" (click)="commitTransaction()" [disabled]="!(allowedOperations && allowedOperations.CommitTransaction)">Commit Transaction</button>
