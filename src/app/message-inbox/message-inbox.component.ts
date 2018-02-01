@@ -38,7 +38,7 @@ export class MessageInboxComponent implements OnInit {
         if (message.affectedElementType === "Context") {
             this.router.navigate(['contextDetail'], { queryParams: { id: message.affectedElement } });
         } else if (message.affectedElementType === "Parameter") {
-            // TODO
+            this.router.navigate(['parameterDetails'], { queryParams: { id: message.affectedElement } });
         }
     }
 

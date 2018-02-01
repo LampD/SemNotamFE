@@ -83,4 +83,4 @@
 </div>
 
 <add-update-rule-dialog [contextId]="contextId" [(display)]="showAddUpdateRuleDialog" [isAdd]="isRuleAdd" [rule]="rule" (callback)="addUpdateRuleCallback($event)"></add-update-rule-dialog>
-<de-contextualize-dialog [(display)]="showDeContextualizeDialog" [isContextualize]="isContextualize" [isDecontextualize]="isDecontextualize" [isMerge]="isMerge" (callback)="deContextualizeCallback($event)"></de-contextualize-dialog>
+<de-contextualize-dialog [(display)]="showDeContextualizeDialog" [isContextualize]="isContextualize" [isDecontextualize]="isDecontextualize" [isMerge]="isMerge" [contextId]="contextId" (callback)="deContextualizeCallback($event)"></de-contextualize-dialog>

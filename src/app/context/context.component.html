@@ -1,15 +1,26 @@
-<div class="container-fluid content-container" *ngIf="contexts">
-    <p-treeTable [value]="contexts" (onRowClick)="navigateToDetail($event)">
-        <p-column *ngFor="let column of columns" field="{{ column.name }}" header="{{ column.name }}"></p-column>
-        <p-column field="detailLink" header="" [style]="{'width':'5%', 'text-align':'center'}">
-            <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
-                <div class="w-100 h-100 link" (click)="navigateToDetail(entry)">
-                    <i class="fa fa-search text-primary" aria-hidden="true"></i>
-                </div>
-            </ng-template>
-        </p-column>
-    </p-treeTable>
-    <button type="button" class="btn btn-primary margin-top-16" (click)="openContextDialog()" [disabled]="!allowedOperations.AddContext">Create Context</button>
+<div class="container-fluid content-container">
+  <div class="row">
+    <div class="col-md-12" [style.height.px]="cardHeight">
+      <div class="card h-100">
+        <div class="card-header">Contexts<loading-indicator class="float-right" [isLoading]="loading"></loading-indicator></div>
+            <div class="card-body center" *ngIf="contexts">
+
+                <p-treeTable [value]="contexts" (onRowClick)="navigateToDetail($event)">
+                    <p-column *ngFor="let column of columns" field="{{ column }}" header="{{ column }}"></p-column>
+                    <p-column field="detailLink" header="" [style]="{'width':'5%', 'text-align':'center'}">
+                        <ng-template let-col let-entry="rowData" let-ri="rowIndex" pTemplate="body">
+                            <div class="w-100 h-100 link" (click)="navigateToDetail(entry)">
+                                <i class="fa fa-search text-primary" aria-hidden="true"></i>
+                            </div>
+                        </ng-template>
+                    </p-column>
+                </p-treeTable>
+                <button type="button" class="btn btn-primary margin-top-16" (click)="openContextDialog()" [disabled]="!allowedOperations.AddContext">Create Context</button>
+
+            </div>
+        </div>
+      </div>
+    </div>
 </div>
 
-<add-update-context-dialog [(display)]="showCreateContextDialog" (callback)="addContextCallback($event)"></add-update-context-dialog>
+<add-update-context-dialog *ngIf="contexts" [(display)]="showCreateContextDialog" (callback)="addContextCallback($event)"></add-update-context-dialog>

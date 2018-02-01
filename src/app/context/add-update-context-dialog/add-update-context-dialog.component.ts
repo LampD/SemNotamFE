@@ -11,7 +11,7 @@ import { UserService } from '../../user/index';
     templateUrl: './add-update-context-dialog.component.html',
     styleUrls: ['./add-update-context-dialog.component.scss']
 })
-export class AddUpdateContextDialogComponent implements OnInit, OnDestroy, OnChanges {
+export class AddUpdateContextDialogComponent implements OnInit, OnDestroy {
 
     @Input() public context?: ContextDetailModel;
     @Input() public display: boolean;
@@ -40,18 +40,12 @@ export class AddUpdateContextDialogComponent implements OnInit, OnDestroy, OnCha
             });
             this.ruleDevelopers = await this.userService.getAllRuleDevelopers();
             this.ruleDeveloper = this.ruleDevelopers[0];
-        }
-    }
-
-    public async ngOnChanges(changes: SimpleChanges) {
-        if(changes.context && changes.context.currentValue !== changes.context.previousValue) {
+        } else {
             this.isAdd = false;
             this.selectedParameterValues = <Map<String,ParameterValue>>{};
-            for (var key in this.context.parameterValues) {
-                if (!this.context.parameterValues.hasOwnProperty(key)) continue;
-                var obj = <string> this.context.parameterValues[key];
-                this.selectedParameterValues[key] = <ParameterValue>{name:obj};
-            }
+            this.parameterWithValues.forEach(p => {
+                this.selectedParameterValues[p.name] = p.parameterValues.find(pv => pv.name === this.context.parameterValues[p.name]);
+            });
         }
     }
 

@@ -6,7 +6,9 @@ export class NotificationService {
 
   constructor(
     private toastrService: ToastrService
-  ) { }
+  ) {
+    this.toastrService.toastrConfig.enableHtml = true; 
+  }
 
   public success(title: string, info: string): void {
     this.toastrService.success(info, title);

@@ -65,10 +65,10 @@ export class ParameterComponent implements OnInit {
       if (success) {
         this.notificationService.success('Delete Parameter', 'Success');
       }else{
-        this.notificationService.error('Delete Parameter', 'error');
+        this.notificationService.error('Delete Parameter', 'Can`t be deleted directly. <br/>Composed Operation started.<br/>Check your inbox!');
       }
     } catch (e) {
-        this.notificationService.error('Delete Parameter', 'error');
+        this.notificationService.error('Delete Parameter', 'Error <br/>'+e.message);
     } finally {
       this.loading = false;
       this.ngOnInit();

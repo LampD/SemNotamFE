@@ -84,6 +84,11 @@ export class HttpService {
             this.router.navigate(['login']);
         }
 
+        try {
+          err.message = JSON.parse(err._body).message;
+        } catch (e) {
+          console.log(e);
+        }
         return Observable.throw(err);
     }
 }

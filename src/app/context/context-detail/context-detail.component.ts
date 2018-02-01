@@ -6,6 +6,7 @@ import { User } from '../../user/index';
 import { Router } from '@angular/router';
 import { TransactionService } from '../../transaction/transaction.service';
 import { AllowedOpertions } from '../../transaction/transaction';
+import { NotificationService } from '../../common/index';
 
 @Component({
     selector: 'context-detail',
@@ -26,12 +27,14 @@ export class ContextDetailComponent implements OnInit {
     public isMerge: boolean;
     public allowedOperations: AllowedOpertions;
     public isRuleAdd: boolean;
+    public loading: boolean;
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private contextService: ContextService,
         private router: Router,
         private transactionService: TransactionService,
+        private notificationService: NotificationService,
     ) { }
 
     public async ngOnInit() {
@@ -84,6 +87,7 @@ export class ContextDetailComponent implements OnInit {
             }
         }
         this.rule = <BusinessRule>{};
+        this.router.navigate(['contexts']);
     }
 
     public editRule(rule: BusinessRule): void {
@@ -115,8 +119,22 @@ export class ContextDetailComponent implements OnInit {
     }
 
     public async deleteContext() {
-        await this.contextService.deleteContext(this.contextId);
-        this.router.navigate(['contexts']);
+        try {
+            this.loading = true;
+            var result = await this.contextService.deleteContext(this.contextId);
+            if (result) {
+                this.notificationService.success('Delete Context', 'Success');
+            } else {
+                this.notificationService.warning('Delete Context', 'Can`t be deleted directly. <br/>Composed Operation started.');
+            }
+            
+        } catch (e) {
+            console.log(e.message);
+            this.notificationService.error('Delete Context', 'Error <br/>' + e.message);
+        } finally {
+            this.loading = false;
+            this.router.navigate(['contexts']);
+        }
     }
 
     public updateParamValues(): void {
